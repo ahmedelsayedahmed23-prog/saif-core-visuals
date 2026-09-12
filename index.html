@@ -3,202 +3,341 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bashmohndes Saif | 3D & Programming Studio</title>
+    <title>Bashmohndes Saif | Ultimate 3D & Programming Studio</title>
     <style>
         :root {
-            --bg-color: #0b0f19;
-            --card-bg: #111827;
+            --bg-color: #030712;
+            --card-bg: rgba(17, 24, 39, 0.7);
             --primary: #3b82f6;
             --accent: #a855f7;
+            --neon-glow: 0 0 25px rgba(59, 130, 246, 0.6);
             --text-main: #f9fafb;
             --text-sub: #9ca3af;
-            --border: #1f2937;
+            --border: rgba(255, 255, 255, 0.1);
         }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
             min-height: 100vh;
+            overflow-x: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 40%);
         }
+
+        /* شريط التنقل الاحترافي الفاخر */
         .nav-bar {
             display: flex;
-            gap: 15px;
+            gap: 10px;
             margin-bottom: 30px;
             background: var(--card-bg);
+            backdrop-filter: blur(15px);
             padding: 10px 20px;
             border-radius: 50px;
             border: 1px solid var(--border);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            z-index: 1000;
+            flex-wrap: wrap;
+            justify-content: center;
         }
+
         .nav-btn {
             background: transparent;
             border: none;
             color: var(--text-sub);
-            font-size: 1rem;
-            font-weight: bold;
+            font-size: 0.95rem;
+            font-weight: 600;
             cursor: pointer;
-            padding: 8px 16px;
-            border-radius: 20px;
-            transition: all 0.3s ease;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
         .nav-btn.active, .nav-btn:hover {
-            background: linear-gradient(45deg, var(--primary), var(--accent));
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             color: #fff;
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+            box-shadow: var(--neon-glow);
+            transform: translateY(-2px);
         }
+
+        /* الحاوية والصفحات بتأثير 3D */
         .page-container {
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
+            perspective: 1000px;
         }
+
         .page {
             display: none;
             background: var(--card-bg);
+            backdrop-filter: blur(20px);
             border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-            animation: fadeIn 0.4s ease-in-out;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            transform-style: preserve-3d;
+            animation: pageEnter 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
         }
+
         .page.active {
             display: block;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        @keyframes pageEnter {
+            from {
+                opacity: 0;
+                transform: translateY(30px) rotateX(-10deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) rotateX(0);
+            }
         }
-        .welcome-box {
+
+        /* تأثير الصورة الـ 3D النيون */
+        .profile-card-3d {
             text-align: center;
             padding: 20px 0;
         }
+
         .profile-img-container {
             position: relative;
-            width: 180px;
-            height: 180px;
-            margin: 0 auto 20px auto;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 25px auto;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            box-shadow: var(--neon-glow);
+            animation: floatImage 4s ease-in-out infinite;
         }
+
+        @keyframes floatImage {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+
         .profile-img-container img {
             width: 100%;
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid var(--primary);
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+            border: 3px solid var(--bg-color);
         }
-        h1 {
-            font-size: 2.2rem;
+
+        h1, h2 {
+            font-size: 2.5rem;
             margin-bottom: 15px;
-            background: linear-gradient(45deg, var(--primary), var(--accent));
+            background: linear-gradient(135deg, #fff, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            font-weight: 900;
         }
+
+        h2 { font-size: 2rem; }
+
         p {
             color: var(--text-sub);
-            font-size: 1.1rem;
-            line-height: 1.6;
+            font-size: 1.15rem;
+            line-height: 1.8;
             margin-bottom: 25px;
         }
-        .calc-group {
-            margin-bottom: 20px;
+
+        /* شبكة الخدمات والأعمال 3D Cards */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        .feature-card h3 {
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        /* الحاسبة التفاعلية */
+        .calc-group {
+            margin-bottom: 25px;
+        }
+
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-weight: bold;
             color: var(--text-main);
         }
+
         select, input {
             width: 100%;
-            padding: 12px;
-            border-radius: 12px;
-            background: var(--bg-color);
+            padding: 15px;
+            border-radius: 15px;
+            background: rgba(3, 7, 18, 0.8);
             border: 1px solid var(--border);
             color: var(--text-main);
-            font-size: 1rem;
+            font-size: 1.1rem;
             outline: none;
+            transition: border-color 0.3s;
         }
+
+        select:focus, input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .price-tag {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 20px 0;
+            text-align: center;
+        }
+
         .btn-whatsapp {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            background: #25d366;
+            gap: 12px;
+            background: linear-gradient(135deg, #25d366, #128c7e);
             color: #fff;
-            padding: 14px;
-            border-radius: 12px;
+            padding: 16px;
+            border-radius: 15px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.1rem;
-            margin-top: 20px;
-            transition: background 0.3s;
+            font-size: 1.2rem;
+            margin-top: 25px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
+
         .btn-whatsapp:hover {
-            background: #20ba5a;
+            transform: scale(1.02);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6);
         }
     </style>
 </head>
 <body>
 
-    <!-- أزرار التنقل بين الصفحات -->
+    <!-- أزرار التنقل بين الصفحات الفخمة -->
     <div class="nav-bar">
         <button class="nav-btn active" onclick="switchPage('home')">الرئيسية</button>
-        <button class="nav-btn" onclick="switchPage('services')">خدمات البرمجة والـ 3D</button>
-        <button class="nav-btn" onclick="switchPage('calc')">حاسبة المشروع</button>
+        <button class="nav-btn" onclick="switchPage('services')">الخدمات الخارقة</button>
+        <button class="nav-btn" onclick="switchPage('portfolio')">معرض الأعمال 3D</button>
+        <button class="nav-btn" onclick="switchPage('calc')">حاسبة المشاريع</button>
+        <button class="nav-btn" onclick="switchPage('contact')">تواصل معي</button>
     </div>
 
     <div class="page-container">
 
-        <!-- الصفحة الأولى: الرئيسية والترحيب والصورة -->
+        <!-- 1. صفحة الرئيسية والترحيب -->
         <div id="home" class="page active">
-            <div class="welcome-box">
-                <!-- صورتك الشخصية -->
+            <div class="profile-card-3d">
                 <div class="profile-img-container">
                     <img src="my-photo.jpg" alt="Bashmohndes Saif">
                 </div>
-                <h1>أهلاً بك يا فندم، أنا باشمهندس سيف</h1>
-                <p>أهلاً بك في عالم الابتكار الرقمي والتصميم ثلاثي الأبعاد. نضع بين يديك خبرة متكاملة في هندسة البرمجيات والتصاميم الهندسية الواقعية لتحويل أفكارك إلى حقيقة ملموسة بأعلى معايير الدقة والاحترافية.</p>
-                <button class="nav-btn" style="background: var(--primary); color: #fff; padding: 12px 24px;" onclick="switchPage('services')">تعرف على خدماتنا</button>
+                <h1>مرحباً بك في مستقبل البرمجة و الـ 3D</h1>
+                <p>أنا باشمهندس سيف. أدمج هندسة البرمجيات المتقدمة بالتصاميم ثلاثية الأبعاد الفائقة لأصنع لك مواقع وتطبيقات وكتالوجات تخطف الأنظار وتسيطر على السوق الرقمي.</p>
+                <button class="nav-btn" style="background: var(--primary); color: #fff; padding: 14px 30px; font-size: 1.1rem; border-radius: 15px;" onclick="switchPage('services')">استكشف القدرات الهندسية</button>
             </div>
         </div>
 
-        <!-- الصفحة الثانية: خدمات البرمجة والتصميم 3D والكتالوجات -->
+        <!-- 2. صفحة الخدمات الخارقة -->
         <div id="services" class="page">
-            <h2 style="margin-bottom: 20px; color: var(--primary);">خدماتنا الاحترافية</h2>
-            <p><strong>1. تصميم 3D ونمذجة واقعية:</strong> تصاميم هندسية ومجسمات ثلاثية الأبعاد بدقة فائقة.</p>
-            <p><strong>2. تطوير وبرمجة المواقع والتطبيقات:</strong> حلول برمجية متكاملة، سريعة، ومخصصة حسب طلبك.</p>
-            <p><strong>3. الكتالوجات الرقمية التفاعلية:</strong> عروض أعمالك ومنتجاتك بأسلوب رقمي مبهر يجذب العملاء.</p>
-            <button class="nav-btn" style="background: var(--accent); color: #fff; width: 100%; margin-top: 15px;" onclick="switchPage('calc')">انتقل لحاسبة التقدير</button>
+            <h2>خدماتنا الاستثنائية</h2>
+            <p>نقدم لك حلولاً رقمية وهندسية لا مثيل لها، مصممة خصيصاً لتناسب طموحاتك:</p>
+            <div class="grid-cards">
+                <div class="feature-card">
+                    <h3>تصميم 3D ونمذجة واقعية</h3>
+                    <p>مجسمات هندسية وتصاميم ثلاثية الأبعاد تنبض بالحياة بدقة مذهلة.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>برمجة وتطوير شامل</h3>
+                    <p>تطبيقات ومواقع ويب خارقة السرعة، آمنة، وذات أداء عالمي.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>كتالوجات رقمية تفاعلية</h3>
+                    <p>عرض منتجاتك وأعمالك بطريقة تفاعلية بصرية تبهر العملاء.</p>
+                </div>
+            </div>
         </div>
 
-        <!-- الصفحة الثالثة: حاسبة تقدير المشروع -->
+        <!-- 3. معرض الأعمال 3D -->
+        <div id="portfolio" class="page">
+            <h2>معرض الإبداعات والابتكارات</h2>
+            <p>هنا تجد نماذج لمشاريع هندسية وبرمجية تم تنفيذها بأحدث المعايير العالمية لتمنحك فكرة عن حجم القوة التي سنضيفها لمشروعك القادم.</p>
+            <div class="grid-cards">
+                <div class="feature-card">
+                    <h3>منصة برمجية سحابية</h3>
+                    <p>نظام إدارة متكامل عالي الأداء مع واجهة مستخدم مذهلة.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>محاكاة 3D تفاعلية</h3>
+                    <p>عرض تفصيلي للمنتجات الهندسية بأبعاد ثلاثية متكاملة.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. حاسبة تقدير المشروع -->
         <div id="calc" class="page">
-            <h2 style="margin-bottom: 20px; color: var(--primary);">حاسبة تقدير المشروع</h2>
+            <h2>حاسبة المشاريع التفاعلية</h2>
             <div class="calc-group">
                 <label>اختر الخدمة المطلوبة:</label>
-                <select id="service-type" class="calc-select">
-                    <option value="3d-design">تصميم 3D ونمذجة واقعية</option>
-                    <option value="web-dev">تطوير وبرمجة مواقع وتطبيقات</option>
-                    <option value="catalog">إنشاء كتالوجات رقمية تفاعلية</option>
-                    <option value="full-stack">باقة متكاملة (برمجة + تصميم 3D + كتالوج)</option>
+                <select id="service-type" class="calc-select" onchange="updateCalc()">
+                    <option value="300">تصميم 3D ونمذجة واقعية</option>
+                    <option value="500">تطوير وبرمجة مواقع وتطبيقات</option>
+                    <option value="400">إنشاء كتالوجات رقمية تفاعلية</option>
+                    <option value="900">باقة الإمبراطورية المتكاملة (3D + برمجة + كتالوج)</option>
                 </select>
             </div>
             
             <div class="calc-group">
-                <label>حجم التعقيد / نطاق المشروع:</label>
-                <input type="range" min="1" max="10" value="3" id="project-scale">
+                <label>مستوى التعقيد والنطاق (من 1 إلى 10):</label>
+                <input type="range" min="1" max="10" value="5" id="project-scale" oninput="updateCalc()">
             </div>
 
+            <div class="price-tag" id="estimated-result">التقدير التقريبي: يحدد حسب المتطلبات</div>
+
             <a href="https://wa.me/20120529..." class="btn-whatsapp" target="_blank">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                إرسال الطلب المباشر للواتساب
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                إرسال الطلب المباشر عبر الواتساب
+            </a>
+        </div>
+
+        <!-- 5. صفحة التواصل -->
+        <div id="contact" class="page">
+            <h2>دعنا نصنع المستقبل معاً</h2>
+            <p>هل لديك فكرة مشروع خارقة وتريد تحويلها لواقع؟ تواصل معي مباشرة ودعنا نبدأ العمل فوراً.</p>
+            <a href="https://wa.me/20120529..." class="btn-whatsapp" target="_blank">
+                تواصل معي فوراً على الواتساب
             </a>
         </div>
 
@@ -206,18 +345,25 @@
 
     <script>
         function switchPage(pageId) {
-            // إخفاء كل الصفحات
             const pages = document.querySelectorAll('.page');
             pages.forEach(p => p.classList.remove('active'));
 
-            // إزالة التفعيل من كل الأزرار
             const buttons = document.querySelectorAll('.nav-btn');
             buttons.forEach(b => b.classList.remove('active'));
 
-            // إظهار الصفحة المطلوبة وتفعيل زرها
             document.getElementById(pageId).classList.add('active');
             event.target.classList.add('active');
         }
+
+        function updateCalc() {
+            const baseValue = parseInt(document.getElementById('service-type').value);
+            const scale = parseInt(document.getElementById('project-scale').value);
+            const total = baseValue * scale;
+            document.getElementById('estimated-result').innerText = `النطاق التقديري: ~${total} نقطة عمل / استفسر عبر الواتساب للتسعير الدقيق`;
+        }
+        
+        // تشغيل مبدئي للحاسبة
+        updateCalc();
     </script>
 </body>
 </html>
