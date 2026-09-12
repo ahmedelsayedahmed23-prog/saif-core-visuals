@@ -40,7 +40,7 @@
         /* شريط التنقل الفاخر */
         .nav-bar {
             display: flex;
-            gap: 8px;
+            gap: 6px;
             margin-bottom: 30px;
             background: var(--card-bg);
             backdrop-filter: blur(15px);
@@ -57,10 +57,10 @@
             background: transparent;
             border: none;
             color: var(--text-sub);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             cursor: pointer;
-            padding: 8px 16px;
+            padding: 8px 14px;
             border-radius: 30px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -178,7 +178,7 @@
             background: rgba(59, 130, 246, 0.04);
         }
 
-        /* تصميم معرض الصور الحقيقية (Portfolio Gallery) */
+        /* تصميم معرض الصور الحقيقية */
         .portfolio-img-box {
             width: 100%;
             height: 180px;
@@ -263,10 +263,11 @@
 </head>
 <body>
 
-    <!-- أزرار التنقل الفاخرة -->
+    <!-- أزرار التنقل الفاخرة (تم إضافة زر الخبرات) -->
     <div class="nav-bar">
         <button class="nav-btn active" onclick="switchPage('home')">الرئيسية</button>
         <button class="nav-btn" onclick="switchPage('services')">الخدمات</button>
+        <button class="nav-btn" onclick="switchPage('experience')">سجل الخبرات</button>
         <button class="nav-btn" onclick="switchPage('portfolio')">معرض الأعمال</button>
         <button class="nav-btn" onclick="switchPage('request')">طلب تعديل / مشروع</button>
         <button class="nav-btn" onclick="switchPage('contact')">تواصل معي</button>
@@ -291,7 +292,7 @@
             <h2>الخدمات الهندسية والبرمجية</h2>
             <div class="grid-cards">
                 <div class="feature-card">
-                    <h3>تصميم 3D ونماذج</h3>
+                    <h3>تصميم 3D ونمذجة</h3>
                     <p>مجسمات هندسية وتصاميم واقعية مذهلة بدقة عالية.</p>
                 </div>
                 <div class="feature-card">
@@ -309,7 +310,27 @@
             </div>
         </div>
 
-        <!-- 3. معرض الأعمال (صور حقيقية معبرة) -->
+        <!-- 3. صفحة سجل الخبرات والأعمال السابقة (الجديدة) -->
+        <div id="experience" class="page">
+            <h2>سجل الخبرات والأعمال السابقة</h2>
+            <p>سجل حافل بالمشاريع والحلول التقنية والبرمجية التي تم إنجازها باحترافية تامة لشركات وعلامات تجارية رائدة:</p>
+            <div class="grid-cards">
+                <div class="feature-card">
+                    <h3>شركة Power Plast</h3>
+                    <p><strong>تطوير وبناء السيستم:</strong> تصميم وتطوير نظام برمجى متكامل لإدارة العمليات التشغيلية داخل الشركة بأعلى كفاءة وأمان.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>منفذ بيع Maryam Handmade</h3>
+                    <p><strong>كتالوج رقمي تفاعلي:</strong> تصميم وإنشاء كتالوج رقمي عصري يعرض المنتجات بصرياً بأسلوب يخطف الأنظار ويسهل عمليات البيع.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>شركة Salt Crystals</h3>
+                    <p><strong>تعديلات وتطوير الأنظمة:</strong> تنفيذ تعديلات برمجية مخصصة وتطوير كود السيستم القائم لزيادة السرعة وتحسين تجربة الأداء.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. معرض الأعمال (صور حقيقية معبرة) -->
         <div id="portfolio" class="page">
             <h2>معرض نماذج الأعمال</h2>
             <p>نظرة مباشرة على جودة ودقة التصاميم ثلاثية الأبعاد والحلول البرمجية التي نقدمها:</p>
@@ -331,7 +352,7 @@
             </div>
         </div>
 
-        <!-- 4. صفحة طلب مشروع جديد أو تعديل برمجي وتفاصيل -->
+        <!-- 5. صفحة طلب مشروع جديد أو تعديل برمجي وتفاصيل -->
         <div id="request" class="page">
             <h2>حاسبة المشاريع وطلب التعديلات</h2>
             
@@ -356,7 +377,7 @@
             </button>
         </div>
 
-        <!-- 5. التواصل -->
+        <!-- 6. التواصل -->
         <div id="contact" class="page">
             <h2>تواصل مباشر</h2>
             <p>أنا جاهز لتحويل فكرتك أو تنفيذ تعديلك البرمجي فوراً. تواصل معي مباشرة عبر الواتساب:</p>
