@@ -263,7 +263,7 @@
 </head>
 <body>
 
-    <!-- أزرار التنقل الفاخرة (تم إضافة زر الخبرات) -->
+    <!-- أزرار التنقل الفاخرة -->
     <div class="nav-bar">
         <button class="nav-btn active" onclick="switchPage('home')">الرئيسية</button>
         <button class="nav-btn" onclick="switchPage('services')">الخدمات</button>
@@ -282,7 +282,7 @@
                     <img src="my-photo.jpg" alt="Bashmohndes Saif">
                 </div>
                 <h1>مستقبل التصميم 3D والبرمجة بين يديك</h1>
-                <p>مرحباً بك، أنا المهندس سيف احمد. أقدم لك هندسة برمجيات متقدمة، تصاميم ثلاثية الأبعاد احترافية، وحلول وتعديلات برمجية مخصصة تلبي كافة احتياجاتك بدقة فائقة.</p>
+                <p>مرحباً بك، أنا باشمهندس سيف. أقدم لك هندسة برمجيات متقدمة، تصاميم ثلاثية الأبعاد احترافية، وحلول وتعديلات برمجية مخصصة تلبي كافة احتياجاتك بدقة فائقة.</p>
                 <button class="nav-btn" style="background: var(--primary); color: #fff; padding: 12px 25px; font-size: 1rem; border-radius: 12px;" onclick="switchPage('request')">اطلب مشروعك أو تعديلك الآن</button>
             </div>
         </div>
@@ -310,7 +310,7 @@
             </div>
         </div>
 
-        <!-- 3. صفحة سجل الخبرات والأعمال السابقة (الجديدة) -->
+        <!-- 3. صفحة سجل الخبرات والأعمال السابقة -->
         <div id="experience" class="page">
             <h2>سجل الخبرات والأعمال السابقة</h2>
             <p>سجل حافل بالمشاريع والحلول التقنية والبرمجية التي تم إنجازها باحترافية تامة لشركات وعلامات تجارية رائدة:</p>
@@ -330,7 +330,7 @@
             </div>
         </div>
 
-        <!-- 4. معرض الأعمال (صور حقيقية معبرة) -->
+        <!-- 4. معرض الأعمال -->
         <div id="portfolio" class="page">
             <h2>معرض نماذج الأعمال</h2>
             <p>نظرة مباشرة على جودة ودقة التصاميم ثلاثية الأبعاد والحلول البرمجية التي نقدمها:</p>
@@ -381,7 +381,7 @@
         <div id="contact" class="page">
             <h2>تواصل مباشر</h2>
             <p>أنا جاهز لتحويل فكرتك أو تنفيذ تعديلك البرمجي فوراً. تواصل معي مباشرة عبر الواتساب:</p>
-            <a href="https://wa.me/20120529..." class="btn-whatsapp" target="_blank" style="margin-top: 10px;">
+            <a href="https://wa.me/201205293436" class="btn-whatsapp" target="_blank" style="margin-top: 10px;">
                 فتح محادثة الواتساب الفورية
             </a>
         </div>
@@ -407,7 +407,7 @@
             const message = `مرحباً باشمهندس سيف، أرغب في طلب خدمة:\n\n*نوع الطلب:* ${reqType}\n\n*التفاصيل والتعديلات المطلوبة:* \n${details ? details : 'بدون تفاصيل إضافية'}`;
             
             const encodedMessage = encodeURIComponent(message);
-            const whatsappUrl = `https://wa.me/20120529...?text=${encodedMessage}`;
+            const whatsappUrl = `https://wa.me/201205293436?text=${encodedMessage}`;
             
             window.open(whatsappUrl, '_blank');
         }
