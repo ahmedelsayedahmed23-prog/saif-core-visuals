@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SaifVision | Ultimate 3D & Software Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <style>
+        :root {
+            --bg-dark: #030712;
+            --bg-card: rgba(20, 25, 40, 0.85);
+            --text-color: #f3f4f6;
+            --text-sub: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --primary-blue: #3b82f6;
+            --primary-purple: #a855f7;
+            --primary-gold: #fbbf24;
+            --primary-green: #10b981;
+            --nav-bg: rgba(10, 15, 30, 0.95);
+        }
+
+        [data-theme="light"] {
+            --bg-dark: #f8fafc;
+            --bg-card: #ffffff;
+            --text-color: #0f172a;
+            --text-sub: #475569;
+            --border-color: rgba(0, 0, 0, 0.1);
+            --nav-bg: rgba(255, 255, 255, 0.95);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            background: var(--bg-dark);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            perspective: 1500px;
+        }
+
+        /* Navbar ثابت وأنيق */
+        nav {
+            background: var(--nav-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .logo-row {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--primary-blue);
+            text-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
+        }
+
+        .logo span { color: var(--text-color); }
+
+        .theme-toggle-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-link {
+            color: var(--text-sub);
+            text-decoration: none;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        .nav-link.active {
+            color: #ffffff;
+            background: var(--primary-blue);
+        }
+
+        #viewport-3d {
+            width: 100%;
+            margin-top: 110px;
+            flex: 1;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .page {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            backface-visibility: hidden;
+            opacity: 0;
+            transform: rotateY(90deg) translateZ(100px);
+            transition: opacity 0.5s ease, transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            padding-bottom: 60px;
+            pointer-events: none;
+        }
+
+        .page.active-page {
+            display: block;
+            opacity: 1;
+            transform: rotateY(0deg) translateZ(0px);
+            pointer-events: auto;
+            position: relative;
+        }
+
+        /* تم ضبط الارتفاع هنا لضمان ظهور عناصر Three.js بدقة */
+        .canvas-3d-container {
+            width: 100%;
+            height: 180px;
+            position: relative;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-color);
+        }
+
+        .canvas-3d-container canvas {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            display: block;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        .section-title { text-align: center; font-size: 2rem; font-weight: 900; margin-bottom: 25px; }
+
+        /* الرئيسية */
+        .hero-section { text-align: center; padding: 10px 20px; }
+        header h1 { font-size: 1.8rem; font-weight: 900; margin-bottom: 10px; }
+        header p { color: var(--text-sub); font-size: 0.95rem; margin-bottom: 20px; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .stat-number { font-size: 1.8rem; font-weight: 900; color: var(--primary-blue); }
+        .stat-label { font-size: 0.8rem; color: var(--text-sub); }
+
+        /* Before / After Slider */
+        .ba-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            height: 260px;
+            margin: 20px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .ba-img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        .ba-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 50%; height: 100%;
+            overflow: hidden;
+            border-left: 3px solid #fff;
+        }
+
+        .ba-overlay img {
+            width: 700px; height: 260px; object-fit: cover; max-width: none;
+        }
+
+        .ba-slider {
+            position: absolute;
+            top: 0; bottom: 0;
+            width: 100%;
+            opacity: 0;
+            cursor: ew-resize;
+        }
+
+        /* حاسبة التكلفة */
+        .calc-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .calc-group { margin-bottom: 20px; text-align: right; }
+        .calc-group label { display: block; font-weight: 700; margin-bottom: 8px; }
+        .calc-select, .calc-range {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-dark);
+            color: var(--text-color);
+            font-weight: 700;
+        }
+
+        .calc-result {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px dashed var(--primary-blue);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* معرض الأعمال */
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .portfolio-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 18px; overflow: hidden;
+            cursor: pointer;
+        }
+        .portfolio-img-box { width: 100%; height: 160px; }
+        .portfolio-img-box img { width: 100%; height: 100%; object-fit: cover; }
+        .portfolio-info { padding: 15px; }
+
+        /* Lightbox Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            max-width: 800px; width: 100%;
+            background: var(--bg-card);
+            border-radius: 20px; overflow: hidden;
+            position: relative;
+        }
+
+        .modal-img { width: 100%; max-height: 400px; object-fit: cover; }
+        .modal-info { padding: 20px; }
+        .close-modal {
+            position: absolute; top: 15px; left: 15px;
+            background: red; color: #fff; width: 30px; height: 30px;
+            border-radius: 50%; text-align: center; line-height: 30px; cursor: pointer; font-weight: 900;
+        }
+
+        /* الخدمات */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 20px; border-radius: 15px; text-align: center;
+        }
+
+        /* أزرار الواتساب الأنيقة */
+        .btn-whatsapp {
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center;
+            gap: 10px;
+            background: #25d366; 
+            color: white; 
+            padding: 12px 28px;
+            border-radius: 30px; 
+            text-decoration: none; 
+            font-weight: 800;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+            margin-top: 15px;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-whatsapp:active { transform: scale(0.96); }
+
+        .btn-whatsapp svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+
+        /* زر الواتساب العائم في الأسفل للجانب الأيسر */
+        .floating-whatsapp {
+            position: fixed; 
+            bottom: 20px; 
+            left: 20px;
+            background: #25d366; 
+            color: white; 
+            width: 58px; 
+            height: 58px;
+            border-radius: 50%; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 18px rgba(37, 211, 102, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        .floating-whatsapp svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        footer { text-align: center; padding: 15px; color: var(--text-sub); font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo-row">
+                <div class="logo">Saif<span>Vision 3D</span></div>
+                <button class="theme-toggle-btn" onclick="toggleTheme()">☀️ / 🌙 النمط</button>
+            </div>
+            <ul class="nav-links">
+                <li><a class="nav-link active" onclick="switch3DPage('home-page', this)">الرئيسية</a></li>
+                <li><a class="nav-link" onclick="switch3DPage('services-page', this)">الخدمات</a></li>
+                <li><a class="nav-link" onclick="switch3DPage('calc-page', this)">الحاسبة</a></li>
+                <li><a class="nav-link" onclick="switch3DPage('portfolio-page', this)">الأعمال</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="viewport-3d">
+
+        <!-- الرئيسية -->
+        <div id="home-page" class="page active-page">
+            <section class="hero-section">
+                <div class="container">
+                    <div class="canvas-3d-container" id="hero-3d-box"></div>
+                    <header>
+                        <h1>تطوير البرمجيات ونماذج SolidWorks الـ 3D</h1>
+                        <p>تجمعات ميكانيكية معقدة وتطوير واجهات وبرمجيات تفاعلية.</p>
+                    </header>
+
+                    <!-- الإحصائيات -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">+50</div>
+                            <div class="stat-label">مشروع SolidWorks</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">+30</div>
+                            <div class="stat-label">موقع وبرمجية</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">دقة ورضا العملاء</div>
+                        </div>
+                    </div>
+
+                    <!-- Before / After Interactive Slider -->
+                    <h3 style="margin-top: 20px;">مقارنة الدقة البصرية (رسم هندسي VS رندر 3D)</h3>
+                    <div class="ba-container">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" class="ba-img" alt="After Render">
+                        <div class="ba-overlay" id="ba-overlay">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Before Wireframe">
+                        </div>
+                        <input type="range" min="0" max="100" value="50" class="ba-slider" oninput="moveSlider(this.value)">
+                    </div>
+
+                    <!-- زر تواصل مع لوجو رسمى للواتساب -->
+                    <a href="https://wa.me/201205293436?text=السلام%20عليكم%20يا%20باشمهندس%20سيف" class="btn-whatsapp" target="_blank">
+                        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        تواصل معي عبر واتساب
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <!-- حاسبة التكلفة التفاعلية -->
+        <div id="calc-page" class="page">
+            <div class="container">
+                <h2 class="section-title">حاسبة تقدير المشروع</h2>
+                <div class="calc-card">
+                    <div class="calc-group">
+                        <label>اختر نوع الخدمة:</label>
+                        <select id="service-type" class="calc-select" onchange="calculateCost()">
+                            <option value="solidworks">SolidWorks & Assembly 3D (تصميم ميكانيكي)</option>
+                            <option value="web">تطوير موقع إلكتروني تفاعلي 3D</option>
+                            <option value="both">مشروع مدمج (برمجة + تصميم 3D)</option>
+                        </select>
+                    </div>
+
+                    <div class="calc-group">
+                        <label>حجم التعقيد / عدد الأجزاء والصفحات: (<span id="complexity-val">5</span>)</label>
+                        <input type="range" min="1" max="20" value="5" class="calc-range" id="complexity-range" oninput="calculateCost()">
+                    </div>
+
+                    <div class="calc-result">
+                        <h3>التكلفة التقديرية: <span id="est-price" style="color:var(--primary-gold)">$150</span></h3>
+                        <p>الوقت التقديري للتسليم: <span id="est-time" style="font-weight:bold">3 أيام</span></p>
+                    </div>
+
+                    <button class="btn-whatsapp" style="width: 100%; justify-content: center; border:none; cursor:pointer; margin-top:20px;" onclick="sendEstimate()">
+                        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        إرسال العرض المباشر للواتساب
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- الخدمات -->
+        <div id="services-page" class="page">
+            <div class="container">
+                <h2 class="section-title">خدمات SaifVision</h2>
+                <div class="canvas-3d-container" id="services-3d-box"></div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>تطوير المواقع والبرمجيات</h3>
+                        <p>واجهات مستخدم متجاوبة فائقة السرعة بأسلوب برمجي حديث.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>SolidWorks Assembly 3D</h3>
+                        <p>تصميم ونمذجة ثلاثية الأبعاد بدقة هندسية عالية وتجميع أجزاء ميكانيكية.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>3D Visualization & Render</h3>
+                        <p>إخراج بصري عالي الدقة والواقعية للمنتجات والأجزاء الهندسية.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>استشارات تقنية وهندسية</h3>
+                        <p>بناء منصات تفاعلية وتقديم حلول ميكانيكية وبرمجية مخصصة.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- معرض الأعمال -->
+        <div id="portfolio-page" class="page">
+            <div class="container">
+                <h2 class="section-title">معرض الأعمال النموذجية</h2>
+                <div class="canvas-3d-container" id="portfolio-3d-box"></div>
+                <div class="portfolio-grid">
+                    <div class="portfolio-card" onclick="openModal('SolidWorks Mechanism 3D', 'تجميع ميكانيكي كامل بدقة عالية في SolidWorks مع محاكاة الحركة والأجزاء.', 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80')">
+                        <div class="portfolio-img-box">
+                            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="SolidWorks">
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>SolidWorks Assembly 3D</h4>
+                            <p>اضغط للتكبير واستعراض التفاصيل...</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card" onclick="openModal('Software Development', 'تطوير موقع تفاعلي متجاوب بكود نظيف وأداء سريع جداً.', 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80')">
+                        <div class="portfolio-img-box">
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="Software">
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>تطوير البرمجيات والمواقع</h4>
+                            <p>اضغط للتكبير واستعراض التفاصيل...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal المكبر -->
+    <div class="modal" id="imgModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">✕</span>
+            <img class="modal-img" id="modalImg" src="" alt="Detail">
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDesc" style="color:var(--text-sub); margin-top:8px;"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- لوجو الواتساب العائم في أسفل الشاشة على اليسار -->
+    <a href="https://wa.me/201205293436?text=السلام%20عليكم%20يا%20باشمهندس%20سيف" class="floating-whatsapp" target="_blank" title="تواصل عبر الواتساب">
+        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </a>
+
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2026 - SaifVision Studio 3D</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+        }
+
+        function moveSlider(val) {
+            document.getElementById('ba-overlay').style.width = val + '%';
+        }
+
+        function calculateCost() {
+            const type = document.getElementById('service-type').value;
+            const complexity = document.getElementById('complexity-range').value;
+            document.getElementById('complexity-val').innerText = complexity;
+
+            let basePrice = type === 'solidworks' ? 30 : type === 'web' ? 40 : 60;
+            let timePerUnit = type === 'solidworks' ? 0.5 : 0.8;
+
+            let totalPrice = basePrice + (complexity * 15);
+            let totalDays = Math.ceil(2 + (complexity * timePerUnit));
+
+            document.getElementById('est-price').innerText = '$' + totalPrice;
+            document.getElementById('est-time').innerText = totalDays + ' أيام';
+        }
+
+        function sendEstimate() {
+            const type = document.getElementById('service-type').options[document.getElementById('service-type').selectedIndex].text;
+            const price = document.getElementById('est-price').innerText;
+            const time = document.getElementById('est-time').innerText;
+            const text = `السلام عليكم يا باشمهندس سيف، قمت بحساب تكلفة تقريبية لمشروعي على الموقع:\n- الخدمة: ${type}\n- التكلفة التقديرية: ${price}\n- الوقت المقدر: ${time}`;
+            window.open(`https://wa.me/201205293436?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        function openModal(title, desc, imgSrc) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('modalImg').src = imgSrc;
+            document.getElementById('imgModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('imgModal').style.display = 'none';
+        }
+
+        function switch3DPage(targetPageId, navBtn) {
+            const viewport = document.getElementById('viewport-3d');
+            const targetPage = document.getElementById(targetPageId);
+
+            viewport.style.transform = 'rotateY(-90deg) scale(0.8)';
+            viewport.style.opacity = '0';
+
+            setTimeout(() => {
+                document.querySelectorAll('.page').forEach(page => page.classList.remove('active-page'));
+                targetPage.classList.add('active-page');
+
+                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                navBtn.classList.add('active');
+
+                viewport.style.transform = 'rotateY(0deg) scale(1)';
+                viewport.style.opacity = '1';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 400);
+        }
+
+        function create3DScene(containerId, geoShape, colorHex) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(65, container.clientWidth / container.clientHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            container.appendChild(renderer.domElement);
+
+            let geometry;
+            if (geoShape === 'torus') geometry = new THREE.TorusKnotGeometry(1.2, 0.38, 100, 16);
+            else if (geoShape === 'cubes') geometry = new THREE.BoxGeometry(1.8, 1.8, 1.8);
+            else geometry = new THREE.IcosahedronGeometry(1.6, 1);
+
+            const material = new THREE.MeshBasicMaterial({ color: colorHex, wireframe: true });
+            const mesh = new THREE.Mesh(geometry, material);
+            scene.add(mesh);
+
+            camera.position.z = 4.2;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                mesh.rotation.x += 0.01;
+                mesh.rotation.y += 0.015;
+                renderer.render(scene, camera);
+            }
+            animate();
+        }
+
+        window.onload = () => {
+            create3DScene('hero-3d-box', 'torus', 0x3b82f6);
+            create3DScene('services-3d-box', 'cubes', 0xf59e0b);
+            create3DScene('portfolio-3d-box', 'sphere', 0xa855f7);
+            calculateCost();
+        };
+    </script>
+</body>
+</html>
