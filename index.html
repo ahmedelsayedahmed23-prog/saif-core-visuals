@@ -85,6 +85,7 @@
             perspective: 1400px;
         }
 
+        /* كانفاس شبكة النانو البرمجية ثلاثية الأبعاد في الدخلة */
         #intro-canvas {
             position: absolute;
             top: 0;
@@ -92,7 +93,6 @@
             width: 100%;
             height: 100%;
             z-index: 1;
-            opacity: 0.35;
         }
 
         .hacker-top-badge {
@@ -480,9 +480,9 @@
 </head>
 <body>
 
-    <!-- شاشة الدخلة مع لوحة برمجية 3D تلف تلقائياً -->
+    <!-- شاشة الدخلة مع شبكة النانو البرمجية ثلاثية الأبعاد -->
     <div id="intro-screen">
-        <div class="hacker-top-badge">SECURE_NODE // ROOT_ACCESS</div>
+        <div class="hacker-top-badge">SECURE_NODE // NANO_GRID</div>
         <canvas id="intro-canvas"></canvas>
         <div class="intro-content">
             <div class="intro-logo-container">
@@ -490,7 +490,7 @@
             </div>
             <div class="intro-logo-text">Saif Nova Studio</div>
             <div class="intro-sub-text">Lead Developer: Eng. Saif</div>
-            <div class="terminal-box" id="terminal-text">> [AI INDEXER] Synchronizing Saif Nova Studio with Google AI...</div>
+            <div class="terminal-box" id="terminal-text">> [NANO MATRIX] Initializing 3D Programming Nodes...</div>
             <div class="loading-bar-container">
                 <div class="loading-bar-fill" id="loading-bar"></div>
             </div>
@@ -655,7 +655,7 @@
     </div>
 
     <script>
-        // إعداد خلفية هكرية ريندر سريعة (Matrix Rain في الدخلة)
+        // إعداد شبكة النانو والجسيمات البرمجية ثلاثية الأبعاد (Nano Programming Nodes 3D Grid) في الدخلة
         const introCanvas = document.getElementById('intro-canvas');
         const introCtx = introCanvas.getContext('2d');
 
@@ -666,31 +666,85 @@
         resizeIntroCanvas();
         window.addEventListener('resize', resizeIntroCanvas);
 
-        const hackerChars = "01010101010101010101SAIFNOVAX#_/*<>";
-        const fSize = 14;
-        let cCols = introCanvas.width / fSize;
-        let cDrops = [];
-        for (let i = 0; i < cCols; i++) { cDrops[i] = 1; }
+        // إنشاء شبكة نانو ثلاثية الأبعاد من النقاط والروابط
+        let nanoParticles = [];
+        const numParticles = 65;
 
-        function drawHackerRain() {
-            introCtx.fillStyle = 'rgba(3, 7, 18, 0.2)';
+        for (let i = 0; i < numParticles; i++) {
+            nanoParticles.push({
+                x: (Math.random() - 0.5) * window.innerWidth * 1.5,
+                y: (Math.random() - 0.5) * window.innerHeight * 1.5,
+                z: Math.random() * 500 - 250, // عمق ثلاثي الأبعاد
+                vx: (Math.random() - 0.5) * 1.2,
+                vy: (Math.random() - 0.5) * 1.2,
+                vz: (Math.random() - 0.5) * 1.2,
+                size: Math.random() * 2.5 + 1.5
+            });
+        }
+
+        function drawNanoGrid() {
+            introCtx.fillStyle = 'rgba(3, 7, 18, 0.3)';
             introCtx.fillRect(0, 0, introCanvas.width, introCanvas.height);
 
-            introCtx.fillStyle = '#22c55e';
-            introCtx.font = fSize + 'px monospace';
+            let cx = introCanvas.width / 2;
+            let cy = introCanvas.height / 2;
+            let fov = 400; // منظور الـ 3D
 
-            for (let i = 0; i < cDrops.length; i++) {
-                let char = hackerChars.charAt(Math.floor(Math.random() * hackerChars.length));
-                introCtx.fillText(char, i * fSize, cDrops[i] * fSize);
+            // تحديث ورسم الروابط والجسيمات
+            for (let i = 0; i < nanoParticles.length; i++) {
+                let p = nanoParticles[i];
 
-                if (cDrops[i] * fSize > introCanvas.height && Math.random() > 0.95) {
-                    cDrops[i] = 0;
+                // حركة في الفضاء الثلاثي الأبعاد
+                p.x += p.vx;
+                p.y += p.vy;
+                p.z += p.vz;
+
+                // الارتداد عند الحواف الفضائية
+                if (p.x < -cx || p.x > cx) p.vx *= -1;
+                if (p.y < -cy || p.y > cy) p.vy *= -1;
+                if (p.z < -250 || p.z > 250) p.vz *= -1;
+
+                // إسقاط المنظور ثلاثي الأبعاد (Perspective Projection)
+                let scale = fov / (fov + p.z);
+                let x2d = cx + p.x * scale;
+                let y2d = cy + p.y * scale;
+
+                // رسم عقدة النانو
+                if (scale > 0) {
+                    introCtx.fillStyle = p.z > 0 ? '#3b82f6' : '#22c55e';
+                    introCtx.shadowBlur = 12;
+                    introCtx.shadowColor = p.z > 0 ? '#3b82f6' : '#22c55e';
+                    introCtx.beginPath();
+                    introCtx.arc(x2d, y2d, p.size * scale, 0, Math.PI * 2);
+                    introCtx.fill();
+                    introCtx.shadowBlur = 0;
+
+                    // ربط النقاط القريبة لعمل شبكة نانو برمجية
+                    for (let j = i + 1; j < nanoParticles.length; j++) {
+                        let p2 = nanoParticles[j];
+                        let dx = p.x - p2.x;
+                        let dy = p.y - p2.y;
+                        let dz = p.z - p2.z;
+                        let dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
+
+                        if (dist < 120) {
+                            let scale2 = fov / (fov + p2.z);
+                            let x2d2 = cx + p2.x * scale2;
+                            let y2d2 = cy + p2.y * scale2;
+
+                            introCtx.strokeStyle = `rgba(59, 130, 246, ${1 - dist / 120})`;
+                            introCtx.lineWidth = 0.8;
+                            introCtx.beginPath();
+                            introCtx.moveTo(x2d, y2d);
+                            introCtx.lineTo(x2d2, y2d2);
+                            introCtx.stroke();
+                        }
+                    }
                 }
-                cDrops[i]++;
             }
-            requestAnimationFrame(drawHackerRain);
+            requestAnimationFrame(drawNanoGrid);
         }
-        drawHackerRain();
+        drawNanoGrid();
 
         // تتابع Terminal التشغيل
         window.addEventListener('DOMContentLoaded', () => {
@@ -699,8 +753,8 @@
             const intro = document.getElementById('intro-screen');
 
             const steps = [
+                "> [NANO GRID] Compiling 3D Quantum Shaders...",
                 "> [SECURE ROOT] Establishing Secure CLI Link to Eng. Saif...",
-                "> [3D ENGINE] Initializing Holographic Auto-Rotation Shaders...",
                 "> [AI INDEXER] Registering Saif Nova Studio with Google Knowledge Graph...",
                 "> ACCESS GRANTED. Welcome to Saif Nova Studio..."
             ];
