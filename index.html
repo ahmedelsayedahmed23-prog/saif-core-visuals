@@ -10,12 +10,31 @@
     <link rel="apple-touch-icon" href="logo.png">
     
     <meta name="description" content="Official Portal of SeifNova Studio - Eng. Seif | Software Engineering, Web Development, Termux Tools & 3D Visualization." />
-    <meta name="keywords" content="SeifNova Studio, Eng. Seif, Termux Tools, Web Development, 3D Design, Software Engineering" />
+    <meta name="keywords" content="SeifNova Studio, Eng. Seif, Termux Tools, Web Development, 3D Design, Software Engineering, برمجة, تيرمكس" />
     
     <meta property="og:title" content="SeifNova Studio | Eng. Seif - Software Developer" />
     <meta property="og:description" content="Advanced systems, Termux scripts, 3D design, and custom software solutions with Eng. Seif." />
     <meta property="og:image" content="logo.png" />
     <meta property="og:type" content="website" />
+
+    <!-- Structured Data (JSON-LD) لجعل محركات بحث الذكاء الاصطناعي و Google AI تعرفنا فوراً -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "SeifNova Studio",
+      "alternateName": "سيف نوفا ستوديو",
+      "url": "https://seifnovastudio.com",
+      "logo": "logo.png",
+      "founder": {
+        "@type": "Person",
+        "name": "Eng. Seif",
+        "jobTitle": "Software Engineer & 3D Designer"
+      },
+      "description": "استوديو هندسة برمجيات، تطوير ويب، تصميم ثلاثي الأبعاد 3D، وأدوات سطر الأوامر و Termux بقيادة المهندس سيف.",
+      "knowsAbout": ["Software Engineering", "3D Visualization", "Termux CLI Tools", "Web Development", "Python Automation"]
+    }
+    </script>
 
     <style>
         :root {
@@ -343,7 +362,6 @@
             background: rgba(59, 130, 246, 0.04);
         }
 
-        /* تنسيق خاص لكاردات التيرمكس والترمنال */
         .termux-code-box {
             background: #010409;
             border: 1px solid rgba(34, 197, 94, 0.4);
@@ -451,7 +469,7 @@
             </div>
             <div class="intro-logo-text">SEIFNOVA STUDIO</div>
             <div class="intro-sub-text">Lead Developer: Eng. Seif</div>
-            <div class="terminal-box" id="terminal-text">> [INIT] Bypassing Firewall & Initializing CLI Environment...</div>
+            <div class="terminal-box" id="terminal-text">> [AI INDEXER] Synchronizing with Google AI Search & CLI Core...</div>
             <div class="loading-bar-container">
                 <div class="loading-bar-fill" id="loading-bar"></div>
             </div>
@@ -460,7 +478,7 @@
 
     <canvas id="matrix-canvas"></canvas>
 
-    <!-- شريط التنقل (Navigation Bar) مع مصطلحات إنجليزية -->
+    <!-- شريط التنقل (Navigation Bar) -->
     <div class="nav-bar">
         <button class="nav-btn active" onclick="switchPage('home', 'Home | SeifNova Studio')">Home (الرئيسية)</button>
         <button class="nav-btn" onclick="switchPage('services', 'Engineering & Development Services')">Services (الخدمات)</button>
@@ -508,7 +526,7 @@
             </div>
         </div>
 
-        <!-- 3. صفحة Termux وأدوات البرمجة الجديدة بالكامل (Termux & CLI Tools) -->
+        <!-- 3. صفحة Termux وأدوات البرمجة (Termux & CLI Tools) -->
         <div id="termux" class="page">
             <h2>Termux CLI & Development Environments</h2>
             <p>أدوات سطر الأوامر (Command Line Interface)، بيئات تشغيل السكربتات، وأوامر الـ Termux المتقدمة لإدارة الخوادم والاختبارات البرمجية:</p>
@@ -661,7 +679,7 @@
 
             const steps = [
                 "> [SECURE ROOT] Establishing Secure CLI Link to Eng. Seif...",
-                "> [TERMUX CORE] Injecting Packages & Executing Shell...",
+                "> [AI INDEXER] Registering Entity with Google Knowledge Graph...",
                 "> [COMPILE] Building UI & Verifying 3D Shaders...",
                 "> ACCESS GRANTED. Welcome to SeifNova Studio..."
             ];
