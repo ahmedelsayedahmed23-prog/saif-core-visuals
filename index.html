@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eng. Saif | هندسة البرمجيات والتصاميم ثلاثية الأبعاد</title>
     
-    <!-- تعريفات السيرش (SEO) -->
     <meta name="description" content="الموقع الرسمي للمهندس سيف - متخصص في هندسة البرمجيات، تطوير المواقع، وتصميمات الـ 3D المتقدمة." />
     <meta name="keywords" content="المهندس سيف, Eng Saif, برمجة مواقع, تصميم 3D, تعديل أكواد" />
     
-    <!-- Open Graph لربط الشعار بموافع التواصل -->
     <meta property="og:title" content="Eng. Saif | مهندس برمجيات ومصمم 3D" />
     <meta property="og:description" content="تطوير الأنظمة، تصميمات الـ 3D، والحلول البرمجية المتكاملة." />
     <meta property="og:image" content="20508.png" />
@@ -46,7 +44,6 @@
             position: relative;
         }
 
-        /* شاشة الدخلة الـ Hacker & 3D المتقدمة */
         #intro-screen {
             position: fixed;
             top: 0;
@@ -72,7 +69,6 @@
             z-index: 1;
         }
 
-        /* باج الهكرز على الجنب فوق */
         .hacker-top-badge {
             position: absolute;
             top: 25px;
@@ -122,13 +118,16 @@
         }
 
         .intro-logo-container {
-            width: 90px;
-            height: 90px;
+            width: 110px;
+            height: 110px;
             margin: 0 auto 15px auto;
             border-radius: 50%;
-            padding: 3px;
+            padding: 4px;
             background: linear-gradient(135deg, var(--primary), var(--accent));
             box-shadow: var(--neon-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .intro-logo-container img {
@@ -136,7 +135,7 @@
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--bg-color);
+            display: block;
         }
 
         .intro-logo-text {
@@ -412,7 +411,7 @@
 </head>
 <body>
 
-    <!-- شاشة الدخلة الـ Hacker & 3D المتقدمة (تظهر شعارك 20508.png هنا) -->
+    <!-- شاشة الدخلة الـ Hacker & 3D -->
     <div id="intro-screen">
         <div class="hacker-top-badge">SECURE_NODE // ROOT_ACCESS</div>
         <canvas id="intro-canvas"></canvas>
@@ -441,7 +440,7 @@
 
     <div class="page-container">
 
-        <!-- 1. الرئيسية (تظهر صورتك الشخصية my-photo.jpg هنا) -->
+        <!-- 1. الرئيسية (صورة بروفايلك my-photo.jpg) -->
         <div id="home" class="page active">
             <div class="profile-card-3d">
                 <div class="profile-img-container">
