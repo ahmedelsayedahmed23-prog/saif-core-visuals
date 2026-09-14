@@ -5,35 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eng. Saif | هندسة البرمجيات والتصاميم ثلاثية الأبعاد</title>
     
-    <!-- تعريفات السيرش (SEO) عشان جوجل يظهر اسمك وشعارك -->
+    <!-- تعريفات السيرش (SEO) -->
     <meta name="description" content="الموقع الرسمي للمهندس سيف - متخصص في هندسة البرمجيات، تطوير المواقع، وتصميمات الـ 3D المتقدمة." />
     <meta name="keywords" content="المهندس سيف, Eng Saif, برمجة مواقع, تصميم 3D, تعديل أكواد" />
     
-    <!-- Open Graph لربط الشعار بمواقع التواصل -->
+    <!-- Open Graph لربط الشعار بموافع التواصل -->
     <meta property="og:title" content="Eng. Saif | مهندس برمجيات ومصمم 3D" />
     <meta property="og:description" content="تطوير الأنظمة، تصميمات الـ 3D، والحلول البرمجية المتكاملة." />
-    <meta property="og:image" content="https://yourdomain.com/20508.png" />
+    <meta property="og:image" content="20508.png" />
     <meta property="og:type" content="website" />
-
-    <!-- Schema.org لبيانات البحث -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Eng. Saif",
-      "alternateName": "المهندس سيف",
-      "url": "https://yourdomain.com",
-      "image": "https://yourdomain.com/20508.png",
-      "jobTitle": "Software Engineer & 3D Designer",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Eng. Saif Studio"
-      },
-      "sameAs": [
-        "https://wa.me/201205293436"
-      ]
-    }
-    </script>
 
     <style>
         :root {
@@ -432,7 +412,7 @@
 </head>
 <body>
 
-    <!-- شاشة الدخلة الـ Hacker & 3D المتقدمة -->
+    <!-- شاشة الدخلة الـ Hacker & 3D المتقدمة (تظهر شعارك 20508.png هنا) -->
     <div id="intro-screen">
         <div class="hacker-top-badge">SECURE_NODE // ROOT_ACCESS</div>
         <canvas id="intro-canvas"></canvas>
@@ -461,12 +441,11 @@
 
     <div class="page-container">
 
-        <!-- 1. الرئيسية -->
+        <!-- 1. الرئيسية (تظهر صورتك الشخصية my-photo.jpg هنا) -->
         <div id="home" class="page active">
             <div class="profile-card-3d">
                 <div class="profile-img-container">
-                    <!-- الشعار الجديد هنا بجودته العالية -->
-                    <img src="20508.png" alt="Eng. Saif Logo">
+                    <img src="my-photo.jpg" alt="Eng. Saif Photo">
                 </div>
                 <h1>مستقبل التصميم 3D والبرمجة بين يديك</h1>
                 <p>مرحباً بك، أنا المهندس سيف (Eng. Saif). أقدم لك هندسة برمجيات متقدمة، تصاميم ثلاثية الأبعاد احترافية (3D Visualization)، وحلول وتعديلات برمجية مخصصة تلبي كافة احتياجاتك بدقة فائقة.</p>
@@ -576,7 +555,6 @@
     </div>
 
     <script>
-        // إعدادات الـ 3D Wireframe Canvas في شاشة الدخلة
         const introCanvas = document.getElementById('intro-canvas');
         const introCtx = introCanvas.getContext('2d');
 
@@ -680,7 +658,6 @@
             }, 2800);
         });
 
-        // خلفية الماتريكس (Matrix Rain)
         const canvas = document.getElementById('matrix-canvas');
         const ctx = canvas.getContext('2d');
 
