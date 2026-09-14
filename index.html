@@ -3,7 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الرئيسية | Eng. Saif Core - Ultimate 3D & Programming Studio</title>
+    <title>Eng. Saif | هندسة البرمجيات والتصاميم ثلاثية الأبعاد</title>
+    
+    <!-- تعريفات السيرش (SEO) عشان جوجل يظهر اسمك وشعارك -->
+    <meta name="description" content="الموقع الرسمي للمهندس سيف - متخصص في هندسة البرمجيات، تطوير المواقع، وتصميمات الـ 3D المتقدمة." />
+    <meta name="keywords" content="المهندس سيف, Eng Saif, برمجة مواقع, تصميم 3D, تعديل أكواد" />
+    
+    <!-- Open Graph لربط الشعار بمواقع التواصل -->
+    <meta property="og:title" content="Eng. Saif | مهندس برمجيات ومصمم 3D" />
+    <meta property="og:description" content="تطوير الأنظمة، تصميمات الـ 3D، والحلول البرمجية المتكاملة." />
+    <meta property="og:image" content="https://yourdomain.com/20508.png" />
+    <meta property="og:type" content="website" />
+
+    <!-- Schema.org لبيانات البحث -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Eng. Saif",
+      "alternateName": "المهندس سيف",
+      "url": "https://yourdomain.com",
+      "image": "https://yourdomain.com/20508.png",
+      "jobTitle": "Software Engineer & 3D Designer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Eng. Saif Studio"
+      },
+      "sameAs": [
+        "https://wa.me/201205293436"
+      ]
+    }
+    </script>
+
     <style>
         :root {
             --bg-color: #030712;
@@ -35,7 +66,7 @@
             position: relative;
         }
 
-        /* شاشة الدخلة البرمجية الـ Hacker & 3D المجسمة بالكامل */
+        /* شاشة الدخلة الـ Hacker & 3D المتقدمة */
         #intro-screen {
             position: fixed;
             top: 0;
@@ -52,7 +83,6 @@
             overflow: hidden;
         }
 
-        /* كانفاس الـ 3D الحقيقي والـ Hacker Tunnel */
         #intro-canvas {
             position: absolute;
             top: 0;
@@ -62,12 +92,48 @@
             z-index: 1;
         }
 
+        /* باج الهكرز على الجنب فوق */
+        .hacker-top-badge {
+            position: absolute;
+            top: 25px;
+            left: 30px;
+            z-index: 3;
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.5);
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hacker-top-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #22c55e;
+            animation: blink 1s infinite alternate;
+        }
+
+        @keyframes blink {
+            from { opacity: 0.3; }
+            to { opacity: 1; }
+        }
+
         .intro-content {
             position: relative;
             z-index: 2;
             text-align: center;
-            padding: 30px;
+            padding: 35px;
             max-width: 650px;
+            width: 90%;
             background: rgba(3, 7, 18, 0.85);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(59, 130, 246, 0.4);
@@ -75,28 +141,32 @@
             box-shadow: 0 0 60px rgba(0, 0, 0, 0.9), var(--neon-glow);
         }
 
+        .intro-logo-container {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 15px auto;
+            border-radius: 50%;
+            padding: 3px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            box-shadow: var(--neon-glow);
+        }
+
+        .intro-logo-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--bg-color);
+        }
+
         .intro-logo-text {
-            font-size: 2.3rem;
+            font-size: 2.1rem;
             font-weight: 900;
             background: linear-gradient(135deg, #fff, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 12px;
-            letter-spacing: 3px;
-        }
-
-        .hacker-badge {
-            display: inline-block;
-            background: rgba(34, 197, 94, 0.1);
-            color: #22c55e;
-            border: 1px solid rgba(34, 197, 94, 0.4);
-            padding: 5px 14px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-family: monospace;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-            box-shadow: 0 0 10px rgba(34, 197, 94, 0.2);
+            letter-spacing: 2px;
         }
 
         .terminal-box {
@@ -131,7 +201,6 @@
             box-shadow: 0 0 15px var(--primary);
         }
 
-        /* خلفية الموقع العامة للأكواد المتحركة */
         #matrix-canvas {
             position: fixed;
             top: 0;
@@ -142,7 +211,6 @@
             opacity: 0.25;
         }
 
-        /* شريط التنقل الفاخر */
         .nav-bar {
             display: flex;
             gap: 6px;
@@ -177,7 +245,6 @@
             transform: translateY(-2px);
         }
 
-        /* الحاوية والصفحات بتأثير 3D */
         .page-container {
             width: 100%;
             max-width: 900px;
@@ -212,7 +279,6 @@
             }
         }
 
-        /* صورة الملف الشخصي */
         .profile-card-3d {
             text-align: center;
             padding: 10px 0;
@@ -261,7 +327,6 @@
             margin-bottom: 20px;
         }
 
-        /* شبكة الكروت ومعرض الصور */
         .grid-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -367,11 +432,14 @@
 </head>
 <body>
 
-    <!-- شاشة الدخلة الـ Hacker & 3D المجسمة الخرافية -->
+    <!-- شاشة الدخلة الـ Hacker & 3D المتقدمة -->
     <div id="intro-screen">
+        <div class="hacker-top-badge">SECURE_NODE // ROOT_ACCESS</div>
         <canvas id="intro-canvas"></canvas>
         <div class="intro-content">
-            <div class="hacker-badge">CYBER_SEC // ENG. SAIF CORE 3D</div>
+            <div class="intro-logo-container">
+                <img src="20508.png" alt="Eng. Saif Logo">
+            </div>
             <div class="intro-logo-text">ENG. SAIF STUDIO</div>
             <div class="terminal-box" id="terminal-text">> [INIT] Decrypting 3D Matrix & Compiling Code...</div>
             <div class="loading-bar-container">
@@ -380,17 +448,15 @@
         </div>
     </div>
 
-    <!-- خلفية الأكواد البرمجية المتحركة للموقع -->
     <canvas id="matrix-canvas"></canvas>
 
-    <!-- أزرار التنقل الفاخرة -->
     <div class="nav-bar">
-        <button class="nav-btn active" onclick="switchPage('home', 'الرئيسية | Eng. Saif Core - Ultimate 3D & Programming Studio')">الرئيسية (Home)</button>
-        <button class="nav-btn" onclick="switchPage('services', 'الخدمات الهندسية والبرمجية | Engineering & Dev Services')">الخدمات (Services)</button>
-        <button class="nav-btn" onclick="switchPage('experience', 'سجل الخبرات والأعمال | Corporate Experience & Portfolio')">سجل الخبرات (Experience)</button>
-        <button class="nav-btn" onclick="switchPage('portfolio', 'معرض النماذج البصرية | 3D Visualization & Code Showcase')">معرض الأعمال (Portfolio)</button>
-        <button class="nav-btn" onclick="switchPage('request', 'طلب مشروع أو تعديل برمجي | Project Request & Calculator')">طلب تعديل / مشروع (Request)</button>
-        <button class="nav-btn" onclick="switchPage('contact', 'تواصل مباشر مع المهندس سيف | Direct Contact')">تواصل معي (Contact)</button>
+        <button class="nav-btn active" onclick="switchPage('home', 'الرئيسية | Eng. Saif Core')">الرئيسية (Home)</button>
+        <button class="nav-btn" onclick="switchPage('services', 'الخدمات الهندسية والبرمجية')">الخدمات (Services)</button>
+        <button class="nav-btn" onclick="switchPage('experience', 'سجل الخبرات والأعمال')">سجل الخبرات (Experience)</button>
+        <button class="nav-btn" onclick="switchPage('portfolio', 'معرض النماذج البصرية')">معرض الأعمال (Portfolio)</button>
+        <button class="nav-btn" onclick="switchPage('request', 'طلب مشروع أو تعديل برمجي')">طلب تعديل / مشروع (Request)</button>
+        <button class="nav-btn" onclick="switchPage('contact', 'تواصل مباشر مع المهندس سيف')">تواصل معي (Contact)</button>
     </div>
 
     <div class="page-container">
@@ -399,11 +465,12 @@
         <div id="home" class="page active">
             <div class="profile-card-3d">
                 <div class="profile-img-container">
-                    <img src="my-photo.jpg" alt="Eng. Saif">
+                    <!-- الشعار الجديد هنا بجودته العالية -->
+                    <img src="20508.png" alt="Eng. Saif Logo">
                 </div>
                 <h1>مستقبل التصميم 3D والبرمجة بين يديك</h1>
                 <p>مرحباً بك، أنا المهندس سيف (Eng. Saif). أقدم لك هندسة برمجيات متقدمة، تصاميم ثلاثية الأبعاد احترافية (3D Visualization)، وحلول وتعديلات برمجية مخصصة تلبي كافة احتياجاتك بدقة فائقة.</p>
-                <button class="nav-btn" style="background: var(--primary); color: #fff; padding: 12px 25px; font-size: 1rem; border-radius: 12px;" onclick="switchPage('request', 'طلب مشروع أو تعديل برمجي | Project Request & Calculator')">اطلب مشروعك أو تعديلك الآن</button>
+                <button class="nav-btn" style="background: var(--primary); color: #fff; padding: 12px 25px; font-size: 1rem; border-radius: 12px;" onclick="switchPage('request', 'طلب مشروع أو تعديل برمجي')">اطلب مشروعك أو تعديلك الآن</button>
             </div>
         </div>
 
@@ -430,7 +497,7 @@
             </div>
         </div>
 
-        <!-- 3. صفحة سجل الخبرات والأعمال السابقة -->
+        <!-- 3. سجل الخبرات والأعمال -->
         <div id="experience" class="page">
             <h2>سجل الخبرات والأعمال (Corporate Experience)</h2>
             <p>سجل حافل بالمشاريع والحلول التقنية والبرمجية التي تم إنجازها باحترافية تامة لشركات وعلامات تجارية رائدة:</p>
@@ -472,7 +539,7 @@
             </div>
         </div>
 
-        <!-- 5. صفحة طلب مشروع جديد أو تعديل برمجي وتفاصيل -->
+        <!-- 5. طلب مشروع -->
         <div id="request" class="page">
             <h2>حاسبة المشاريع وطلب التعديلات (Project Request)</h2>
             
@@ -509,7 +576,7 @@
     </div>
 
     <script>
-        // محاكاة 3D Wireframe Cube & Hacker Matrix Tunnel الخرافية
+        // إعدادات الـ 3D Wireframe Canvas في شاشة الدخلة
         const introCanvas = document.getElementById('intro-canvas');
         const introCtx = introCanvas.getContext('2d');
 
@@ -522,13 +589,10 @@
 
         let rotX = 0;
         let rotY = 0;
-        
-        // إحداثيات مكعب ثلاثي الأبعاد (3D Cube Vertices)
         const vertices = [
             [-1, -1, -1], [1, -1, -1], [1, 1, -1], [-1, 1, -1],
             [-1, -1, 1], [1, -1, 1], [1, 1, 1], [-1, 1, 1]
         ];
-
         const edges = [
             [0,1],[1,2],[2,3],[3,0],
             [4,5],[5,6],[6,7],[7,4],
@@ -547,17 +611,13 @@
             rotY += 0.03;
 
             let projected = [];
-
-            // إسقاط النقاط الثلاثية الأبعاد على شاشة ثنائية الأبعاد مع الدوران (3D Projection)
             for (let i = 0; i < vertices.length; i++) {
                 let v = vertices[i];
                 let x = v[0], y = v[1], z = v[2];
 
-                // دوران حول المحور Y
                 let x1 = x * Math.cos(rotY) - z * Math.sin(rotY);
                 let z1 = x * Math.sin(rotY) + z * Math.cos(rotY);
 
-                // دوران حول المحور X
                 let y2 = y * Math.cos(rotX) - z1 * Math.sin(rotX);
                 let z2 = y * Math.sin(rotX) + z1 * Math.cos(rotX);
 
@@ -570,7 +630,6 @@
                 });
             }
 
-            // رسم خطوط المكعب الـ 3D مع توهج نيون
             introCtx.strokeStyle = 'rgba(59, 130, 246, 0.7)';
             introCtx.lineWidth = 2;
             introCtx.shadowBlur = 15;
@@ -586,29 +645,25 @@
                 introCtx.stroke();
             }
 
-            introCtx.shadowBlur = 0; // إلغاء الـ shadow لباقي العناصر
+            introCtx.shadowBlur = 0;
             requestAnimationFrame(draw3DObject);
         }
         draw3DObject();
 
-        // تسلسل شاشة الترحيب (Hacker Booting Sequence)
         window.addEventListener('DOMContentLoaded', () => {
             const terminal = document.getElementById('terminal-text');
             const bar = document.getElementById('loading-bar');
             const intro = document.getElementById('intro-screen');
 
             const steps = [
-                "> [SECURE ROOT] Bypassing Firewall...",
-                "> [3D ENGINE] Rendering 3D Matrices & Wireframes...",
-                "> [DEV CORE] Compiling Eng. Saif Architecture...",
-                "> ACCESS GRANTED. Welcome to Eng. Saif Studio..."
+                "> [SECURE ROOT] Bypassing Firewall & Initializing...",
+                "> [3D ENGINE] Rendering Wireframes & Core Matrices...",
+                "> [DEV CORE] Compiling Eng. Saif Studio Architecture...",
+                "> ACCESS GRANTED. Loading Interface..."
             ];
 
             let stepIndex = 0;
-            
-            setTimeout(() => {
-                bar.style.width = '100%';
-            }, 150);
+            setTimeout(() => { bar.style.width = '100%'; }, 150);
 
             const interval = setInterval(() => {
                 stepIndex++;
@@ -625,7 +680,7 @@
             }, 2800);
         });
 
-        // تأثير الخلفية البرمجية الحية (Matrix Code Rain) للموقع الرئيسي
+        // خلفية الماتريكس (Matrix Rain)
         const canvas = document.getElementById('matrix-canvas');
         const ctx = canvas.getContext('2d');
 
@@ -640,9 +695,7 @@
         const fontSize = 16;
         let columns = canvas.width / fontSize;
         let drops = [];
-        for (let i = 0; i < columns; i++) {
-            drops[i] = 1;
-        }
+        for (let i = 0; i < columns; i++) { drops[i] = 1; }
 
         function drawMatrix() {
             ctx.fillStyle = 'rgba(3, 7, 18, 0.12)';
@@ -681,11 +734,8 @@
             const details = document.getElementById('project-details').value;
             
             const message = `مرحباً المهندس سيف، أرغب في طلب خدمة:\n\n*نوع الطلب:* ${reqType}\n\n*التفاصيل والتعديلات المطلوبة:* \n${details ? details : 'بدون تفاصيل إضافية'}`;
-            
             const encodedMessage = encodeURIComponent(message);
-            const whatsappUrl = `https://wa.me/201205293436?text=${encodedMessage}`;
-            
-            window.open(whatsappUrl, '_blank');
+            window.open(`https://wa.me/201205293436?text=${encodedMessage}`, '_blank');
         }
     </script>
 </body>
