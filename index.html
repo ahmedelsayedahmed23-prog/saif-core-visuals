@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SeifNova Studio | هندسة البرمجيات والتصاميم ثلاثية الأبعاد</title>
+    <title>SeifNova Studio | Software Engineering & 3D Design</title>
     
-    <!-- إعدادات ظهور اللوجو والأيقونة على جوجل ومحركات البحث -->
+    <!-- Favicon & Open Graph -->
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="apple-touch-icon" href="logo.png">
     
-    <meta name="description" content="الموقع الرسمي لـ SeifNova Studio - المهندس سيف | متخصصون في هندسة البرمجيات، تطوير المواقع، وتصميمات الـ 3D المتقدمة." />
-    <meta name="keywords" content="SeifNova Studio, سيف نوفا, مهندس سيف, برمجة مواقع, تصميم 3D, تعديل أكواد, هندسة برمجيات" />
+    <meta name="description" content="Official Portal of SeifNova Studio - Eng. Seif | Software Engineering, Web Development, Termux Tools & 3D Visualization." />
+    <meta name="keywords" content="SeifNova Studio, Eng. Seif, Termux Tools, Web Development, 3D Design, Software Engineering" />
     
-    <!-- Open Graph لتظهر صورة اللوجو واسم السيرفر في نتائج البحث والروابط -->
-    <meta property="og:title" content="SeifNova Studio | المهندس سيف - مصمم 3D ومطور برمجيات" />
-    <meta property="og:description" content="تطوير الأنظمة، تصميمات الـ 3D، والحلول البرمجية المتكاملة مع المهندس سيف." />
+    <meta property="og:title" content="SeifNova Studio | Eng. Seif - Software Developer" />
+    <meta property="og:description" content="Advanced systems, Termux scripts, 3D design, and custom software solutions with Eng. Seif." />
     <meta property="og:image" content="logo.png" />
     <meta property="og:type" content="website" />
 
@@ -49,7 +48,7 @@
             position: relative;
         }
 
-        /* شاشة الدخلة الهكرية المتقدمة */
+        /* شاشة الدخلة الهكرية */
         #intro-screen {
             position: fixed;
             top: 0;
@@ -344,6 +343,21 @@
             background: rgba(59, 130, 246, 0.04);
         }
 
+        /* تنسيق خاص لكاردات التيرمكس والترمنال */
+        .termux-code-box {
+            background: #010409;
+            border: 1px solid rgba(34, 197, 94, 0.4);
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-family: monospace;
+            color: #22c55e;
+            font-size: 0.85rem;
+            direction: ltr;
+            text-align: left;
+            margin-top: 10px;
+            overflow-x: auto;
+        }
+
         .portfolio-img-box {
             width: 100%;
             height: 180px;
@@ -436,8 +450,8 @@
                 <img src="logo.png" alt="SeifNova Studio Logo">
             </div>
             <div class="intro-logo-text">SEIFNOVA STUDIO</div>
-            <div class="intro-sub-text">إشراف وتقديم: Eng. Seif</div>
-            <div class="terminal-box" id="terminal-text">> [INIT] Bypassing Firewall & Decrypting Matrix...</div>
+            <div class="intro-sub-text">Lead Developer: Eng. Seif</div>
+            <div class="terminal-box" id="terminal-text">> [INIT] Bypassing Firewall & Initializing CLI Environment...</div>
             <div class="loading-bar-container">
                 <div class="loading-bar-fill" id="loading-bar"></div>
             </div>
@@ -446,125 +460,156 @@
 
     <canvas id="matrix-canvas"></canvas>
 
+    <!-- شريط التنقل (Navigation Bar) مع مصطلحات إنجليزية -->
     <div class="nav-bar">
-        <button class="nav-btn active" onclick="switchPage('home', 'الرئيسية | SeifNova Studio Core')">الرئيسية (Home)</button>
-        <button class="nav-btn" onclick="switchPage('services', 'الخدمات الهندسية والبرمجية')">الخدمات (Services)</button>
-        <button class="nav-btn" onclick="switchPage('experience', 'سجل الخبرات والأعمال')">سجل الخبرات (Experience)</button>
-        <button class="nav-btn" onclick="switchPage('portfolio', 'معرض النماذج البصرية')">معرض الأعمال (Portfolio)</button>
-        <button class="nav-btn" onclick="switchPage('request', 'طلب مشروع أو تعديل برمجي')">طلب تعديل / مشروع (Request)</button>
-        <button class="nav-btn" onclick="switchPage('contact', 'تواصل مباشر مع SeifNova Studio')">تواصل معي (Contact)</button>
+        <button class="nav-btn active" onclick="switchPage('home', 'Home | SeifNova Studio')">Home (الرئيسية)</button>
+        <button class="nav-btn" onclick="switchPage('services', 'Engineering & Development Services')">Services (الخدمات)</button>
+        <button class="nav-btn" onclick="switchPage('termux', 'Termux CLI & Development Tools')">Termux & CLI (أدوات التيرمكس)</button>
+        <button class="nav-btn" onclick="switchPage('experience', 'Corporate Experience & Systems')">Experience (الخبرات)</button>
+        <button class="nav-btn" onclick="switchPage('portfolio', '3D & Software Portfolio')">Portfolio (المعرض)</button>
+        <button class="nav-btn" onclick="switchPage('request', 'Project Request & Calculator')">Request (طلب مشروع)</button>
+        <button class="nav-btn" onclick="switchPage('contact', 'Direct Contact & Support')">Contact (تواصل)</button>
     </div>
 
     <div class="page-container">
 
-        <!-- 1. الرئيسية -->
+        <!-- 1. الرئيسية (Home) -->
         <div id="home" class="page active">
             <div class="profile-card-3d">
                 <div class="profile-img-container">
                     <img src="my-photo.jpg" alt="Eng. Seif">
                 </div>
-                <h1>مستقبل التصميم 3D والبرمجة بين يديك</h1>
-                <p>مرحباً بك في عالم <strong>SeifNova Studio</strong> بقيادة <strong>Eng. Seif</strong>. أقدم لك هندسة برمجيات متقدمة، تصاميم ثلاثية الأبعاد احترافية (3D Visualization)، وحلول وتعديلات برمجية مخصصة تلبي كافة احتياجاتك بدقة فائقة.</p>
-                <button class="nav-btn" style="background: var(--primary); color: #fff; padding: 12px 25px; font-size: 1rem; border-radius: 12px;" onclick="switchPage('request', 'طلب مشروع أو تعديل برمجي')">اطلب مشروعك أو تعديلك الآن</button>
+                <h1>Welcome to Next-Gen Software & 3D Matrix</h1>
+                <p>مرحباً بك في عالم <strong>SeifNova Studio</strong> بقيادة <strong>Eng. Seif</strong>. نقدم لك حلولاً برمجية متقدمة (Advanced Software Solutions)، هندسة أنظمة (Systems Engineering)، وتصاميم ثلاثية الأبعاد احترافية (3D Visualization) مع بيئات عمل برمجية متكاملة.</p>
+                <button class="nav-btn" style="background: var(--primary); color: #fff; padding: 12px 25px; font-size: 1rem; border-radius: 12px;" onclick="switchPage('request', 'Project Request')">Start Your Project Now (ابدأ مشروعك)</button>
             </div>
         </div>
 
-        <!-- 2. الخدمات -->
+        <!-- 2. الخدمات (Services) -->
         <div id="services" class="page">
-            <h2>الخدمات الهندسية والبرمجية (Services)</h2>
+            <h2>Engineering & Development Services</h2>
             <div class="grid-cards">
                 <div class="feature-card">
-                    <h3>تصميم 3D ونمذجة (3D Modeling)</h3>
-                    <p>مجسمات هندسية وتصاميم واقعية مذهلة بدقة عالية وإخراج بصري فائق.</p>
+                    <h3>3D Modeling & Rendering</h3>
+                    <p>مجسمات هندسية وتصاميم واقعية مذهلة (High-End 3D Visualization) بدقة وإخراج بصري احترافي.</p>
                 </div>
                 <div class="feature-card">
-                    <h3>تطوير وبرمجة المواقع (Web Development)</h3>
-                    <p>مواقع وتطبيقات سريعة، آمنة، ومصممة خصيصاً بأحدث التقنيات البرمجية.</p>
+                    <h3>Full-Stack Web Development</h3>
+                    <p>تطوير وبناء مواقع وتطبيقات ويب سريعة، آمنة ومصممة بأحدث تقنيات الـ Frontend & Backend.</p>
                 </div>
                 <div class="feature-card">
-                    <h3>تعديلات برمجية مخصصة (Code Customization)</h3>
-                    <p>إضافة ميزات أو تعديل وتحسين الأكواد البرمجية القائمة باحترافية تامة.</p>
+                    <h3>Code Customization & Debugging</h3>
+                    <p>تعديل وتحسين الأكواد البرمجية القائمة، إضافة ميزات جديدة، وإصلاح الأخطاء (Bug Fixing).</p>
                 </div>
                 <div class="feature-card">
-                    <h3>الكتالوجات الرقمية (Digital Catalogs)</h3>
-                    <p>عروض تفاعلية مبهرة لعرض منتجاتك وأعمالك بأسلوب تسويقي راقي.</p>
+                    <h3>Digital Catalogs & Automation</h3>
+                    <p>تصميم كتالوجات رقمية تفاعلية مربوطة بقواعد بيانات سحابية وأنظمة واتساب أوتوماتيكية.</p>
                 </div>
             </div>
         </div>
 
-        <!-- 3. سجل الخبرات والأعمال -->
+        <!-- 3. صفحة Termux وأدوات البرمجة الجديدة بالكامل (Termux & CLI Tools) -->
+        <div id="termux" class="page">
+            <h2>Termux CLI & Development Environments</h2>
+            <p>أدوات سطر الأوامر (Command Line Interface)، بيئات تشغيل السكربتات، وأوامر الـ Termux المتقدمة لإدارة الخوادم والاختبارات البرمجية:</p>
+            <div class="grid-cards">
+                <div class="feature-card">
+                    <h3>Termux Advanced Setup</h3>
+                    <p>تهيئة بيئة العمل السحابية على الهواتف والأجهزة الذكية مع حزم الـ Packages والتحديثات الأساسية.</p>
+                    <div class="termux-code-box">pkg update && pkg upgrade -y<br>pkg install git python nodejs -y</div>
+                </div>
+                <div class="feature-card">
+                    <h3>Python & Automation Scripts</h3>
+                    <p>تنفيذ وتشغيل سكربتات البايثون البرمجية وأدوات الأتمتة والـ Web Scraping بكفاءة عالية.</p>
+                    <div class="termux-code-box">pip install requests beautifulsoup4<br>python bot_engine.py</div>
+                </div>
+                <div class="feature-card">
+                    <h3>Git Repository Management</h3>
+                    <p>إدارة مستودعات الكود المصدري، الـ Version Control، ورفع المشاريع مباشرة عبر الـ Terminal.</p>
+                    <div class="termux-code-box">git init && git add .<br>git commit -m "SeifNova Update"</div>
+                </div>
+                <div class="feature-card">
+                    <h3>Node.js & Server Testing</h3>
+                    <p>تشغيل خوادم محلية واختبار السيرفرات المصغرة (Localhost) وتطبيقات الـ JavaScript.</p>
+                    <div class="termux-code-box">npm init -y<br>node server.js</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. سجل الخبرات والأعمال (Experience) -->
         <div id="experience" class="page">
-            <h2>سجل الخبرات والأعمال (Corporate Experience)</h2>
-            <p>سجل حافل بالمشاريع والحلول التقنية والبرمجية التي تم إنجازها باحترافية تامة لشركات وعلامات تجارية رائدة:</p>
+            <h2>Corporate Experience & Systems</h2>
+            <p>سجل حافل بالحلول التقنية والبرمجية والهندسية المنفذة باحترافية تامة للشركات:</p>
             <div class="grid-cards">
                 <div class="feature-card">
-                    <h3>شركة Power Plast</h3>
-                    <p><strong>تطوير وبناء السيستم:</strong> تصميم وتطوير نظام برمجى متكامل لإدارة العمليات التشغيلية داخل الشركة بأعلى كفاءة وأمان.</p>
+                    <h3>Power Plast Company</h3>
+                    <p><strong>System Architecture & Development:</strong> تصميم وبناء سيستم برمجى متكامل لإدارة العمليات التشغيلية (Operations Management).</p>
                 </div>
                 <div class="feature-card">
-                    <h3>منفذ بيع Maryam Handmade</h3>
-                    <p><strong>كتالوج رقمي تفاعلي:</strong> تصميم وإنشاء كتالوج رقمي عصري يعرض المنتجات بصرياً بأسلوب يخطف الأنظار ويسهل عمليات البيع.</p>
+                    <h3>Maryam Handmade Store</h3>
+                    <p><strong>Interactive Digital Catalog:</strong> تطوير كتالوج رقمي تفاعلي يعرض المنتجات بصرياً ويدعم الـ Direct WhatsApp Orders.</p>
                 </div>
                 <div class="feature-card">
-                    <h3>شركة Salt Crystals</h3>
-                    <p><strong>تعديلات وتطوير الأنظمة:</strong> تنفيذ تعديلات برمجية مخصصة وتطوير كود السيستم القائم لزيادة السرعة وتحسين تجربة الأداء.</p>
+                    <h3>Salt Crystals Company</h3>
+                    <p><strong>Code Refactoring & Optimization:</strong> تنفيذ تعديلات برمجية وتحسين سرعة وكفاءة الأكواد القائمة (Performance Tuning).</p>
                 </div>
             </div>
         </div>
 
-        <!-- 4. معرض الأعمال -->
+        <!-- 5. معرض الأعمال (Portfolio) -->
         <div id="portfolio" class="page">
-            <h2>معرض النماذج البصرية (Showcase)</h2>
-            <p>نظرة مباشرة على جودة ودقة التصاميم ثلاثية الأبعاد والحلول البرمجية التي نقدمها:</p>
+            <h2>3D Visualization & Software Portfolio</h2>
+            <p>معرض النماذج البصرية والهندسية ومشاريع التطوير البرمجي:</p>
             <div class="grid-cards">
                 <div class="feature-card">
                     <div class="portfolio-img-box">
                         <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop" alt="3D Design">
                     </div>
-                    <h3>محاكاة هندسية ثلاثية الأبعاد (3D Render)</h3>
-                    <p>تصاميم مجسمات واقعية متكاملة تنبض بالحياة وتلبي أعلى المعايير الهندسية.</p>
+                    <h3>3D Rendering & CAD Models</h3>
+                    <p>مجسمات هندسية ثلاثية الأبعاد واقعية مصممة بأعلى معايير الجودة (High Resolution).</p>
                 </div>
                 <div class="feature-card">
                     <div class="portfolio-img-box">
                         <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="Programming Code">
                     </div>
-                    <h3>هندسة البرمجيات والأكواد (Code Engineering)</h3>
-                    <p>هندسة برمجيات متطورة، أكواد نظيفة (Clean Code)، وتطبيقات ذات كفاءة عالية.</p>
+                    <h3>Clean Code & Software Engineering</h3>
+                    <p>بنية أكواد نظيفة وآمنة (Secure Architecture) تضمن استقرار الأنظمة وسرعتها.</p>
                 </div>
             </div>
         </div>
 
-        <!-- 5. طلب مشروع -->
+        <!-- 6. طلب مشروع (Request) -->
         <div id="request" class="page">
-            <h2>حاسبة المشاريع وطلب التعديلات (Project Request)</h2>
+            <h2>Project Request & Customization Calculator</h2>
             
             <div class="calc-group">
-                <label>نوع الطلب (Service Type):</label>
+                <label>Service Type (نوع الخدمة المطلوبة):</label>
                 <select id="request-type" class="calc-select">
-                    <option value="مشروع تصميم 3D جديد">مشروع تصميم 3D جديد (3D Modeling)</option>
-                    <option value="مشروع برمجي جديد">مشروع برمجي وتطوير جديد (Web Dev)</option>
-                    <option value="تعديل برمجي على كود / موقع">أريد تعديل برمجي على كود أو موقع حالي (Code Fix)</option>
-                    <option value="باقة متكاملة (3D + برمجة)">باقة متكاملة (Full Package: 3D + Dev)</option>
+                    <option value="مشروع تصميم 3D جديد">3D Modeling & Rendering Project</option>
+                    <option value="مشروع برمجي جديد">Full-Stack Web Development Project</option>
+                    <option value="تعديل برمجي على كود / موقع">Code Customization & Bug Fixing</option>
+                    <option value="أدوات تيرمكس وبرمجة خاصة">Termux Scripts & Custom CLI Tools</option>
+                    <option value="باقة متكاملة (3D + برمجة)">Full Package (3D + Web + CLI)</option>
                 </select>
             </div>
 
             <div class="calc-group">
-                <label>اكتب تفاصيل مشروعك أو التعديل المطلوب بدقة:</label>
-                <textarea id="project-details" placeholder="اكتب هنا كافة التفاصيل، الأفكار، أو التعديلات البرمجية التي ترغب في تنفيذها..."></textarea>
+                <label>Project Details & Requirements (تفاصيل المشروع):</label>
+                <textarea id="project-details" placeholder="اكتب تفاصيل مشروعك، السكربتات المطلوبة، أو التعديلات البرمجية بدقة..."></textarea>
             </div>
 
             <button class="btn-whatsapp" onclick="sendToWhatsApp()">
                 <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                إرسال الطلب والتفاصيل مباشرة عبر الواتساب
+                Send Project Request via WhatsApp (إرسال الطلب عبر الواتساب)
             </button>
         </div>
 
-        <!-- 6. التواصل -->
+        <!-- 7. التواصل (Contact) -->
         <div id="contact" class="page">
-            <h2>تواصل مباشر (Direct Contact)</h2>
-            <p>نحن جاهزون لتحويل فكرتك أو تنفيذ تعديلك البرمجي فوراً. تواصل معي مباشرة عبر الواتساب:</p>
+            <h2>Direct Contact & Technical Support</h2>
+            <p>جاهزون لتنفيذ طلباتك البرمجية وتطوير أدوات الـ CLI والـ Termux فوراً. تواصل معنا مباشرة:</p>
             <a href="https://wa.me/201205293436" class="btn-whatsapp" target="_blank" style="margin-top: 10px;">
-                فتح محادثة الواتساب الفورية مع SeifNova Studio
+                Open WhatsApp Direct Chat (فتح محادثة واتساب)
             </a>
         </div>
 
@@ -615,8 +660,8 @@
             const intro = document.getElementById('intro-screen');
 
             const steps = [
-                "> [SECURE ROOT] Establishing Secure Link to Eng. Seif...",
-                "> [MATRIX CORE] Injecting SeifNova Studio Protocols...",
+                "> [SECURE ROOT] Establishing Secure CLI Link to Eng. Seif...",
+                "> [TERMUX CORE] Injecting Packages & Executing Shell...",
                 "> [COMPILE] Building UI & Verifying 3D Shaders...",
                 "> ACCESS GRANTED. Welcome to SeifNova Studio..."
             ];
@@ -692,7 +737,7 @@
             const reqType = document.getElementById('request-type').value;
             const details = document.getElementById('project-details').value;
             
-            const message = `مرحباً SeifNova Studio (Eng. Seif)، أرغب في طلب خدمة:\n\n*نوع الطلب:* ${reqType}\n\n*التفاصيل والتعديلات المطلوبة:* \n${details ? details : 'بدون تفاصيل إضافية'}`;
+            const message = `مرحباً SeifNova Studio (Eng. Seif)، أرغب في طلب خدمة:\n\n*Service Type:* ${reqType}\n\n*Project Details:* \n${details ? details : 'No additional details'}`;
             const encodedMessage = encodeURIComponent(message);
             window.open(`https://wa.me/201205293436?text=${encodedMessage}`, '_blank');
         }
