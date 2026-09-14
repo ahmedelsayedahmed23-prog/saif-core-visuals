@@ -3,35 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سيف نوفا ستوديو - SeifNova Studio | Software Engineering & 3D Design</title>
+    <title>Saif Nova Studio - سيف نوفا ستوديو | Software Engineering & 3D Design</title>
     
     <!-- Favicon & Open Graph -->
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="apple-touch-icon" href="logo.png">
     
-    <meta name="description" content="الموقع الرسمي لـ سيف نوفا ستوديو - SeifNova Studio بقيادة Eng. Seif | هندسة البرمجيات، تطوير الويب، أدوات تيرمكس، والتصميم ثلاثي الأبعاد." />
-    <meta name="keywords" content="سيف نوفا ستوديو, SeifNova Studio, Eng. Seif, Termux Tools, Web Development, 3D Design, Software Engineering, برمجة, تيرمكس" />
+    <meta name="description" content="الموقع الرسمي لـ Saif Nova Studio (سيف نوفا ستوديو) بقيادة Eng. Saif | هندسة البرمجيات، تطوير الويب، أدوات تيرمكس، والتصميم ثلاثي الأبعاد." />
+    <meta name="keywords" content="Saif Nova Studio, سيف نوفا ستوديو, Eng. Saif, Termux Tools, Web Development, 3D Design, Software Engineering, برمجة, تيرمكس" />
     
-    <meta property="og:title" content="سيف نوفا ستوديو | SeifNova Studio - Software Developer" />
-    <meta property="og:description" content="أنظمة متقدمة، سكربتات تيرمكس، وتصاميم 3D احترافية مع سيف نوفا ستوديو." />
+    <meta property="og:title" content="Saif Nova Studio | سيف نوفا ستوديو - Software Developer" />
+    <meta property="og:description" content="أنظمة متقدمة، سكربتات تيرمكس، وتصاميم 3D احترافية مع Saif Nova Studio." />
     <meta property="og:image" content="logo.png" />
     <meta property="og:type" content="website" />
 
-    <!-- Structured Data (JSON-LD) لجعل محركات بحث الذكاء الاصطناعي و Google AI تعرفنا فوراً -->
+    <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "سيف نوفا ستوديو",
-      "alternateName": "SeifNova Studio",
+      "name": "Saif Nova Studio",
+      "alternateName": "سيف نوفا ستوديو",
       "url": "https://ahmedelsayedahmed23-prog.github.io/saif-core-visuals/",
       "logo": "logo.png",
       "founder": {
         "@type": "Person",
-        "name": "Eng. Seif",
+        "name": "Eng. Saif",
         "jobTitle": "Software Engineer & 3D Designer"
       },
-      "description": "استوديو هندسة برمجيات، تطوير ويب، تصميم ثلاثي الأبعاد 3D، وأدوات سطر الأوامر و Termux في سيف نوفا ستوديو بقيادة المهندس سيف.",
+      "description": "استوديو هندسة برمجيات، تطوير ويب، تصميم ثلاثي الأبعاد 3D، وأدوات سطر الأوامر و Termux في Saif Nova Studio بقيادة المهندس Saif.",
       "knowsAbout": ["Software Engineering", "3D Visualization", "Termux CLI Tools", "Web Development", "Python Automation"]
     }
     </script>
@@ -67,14 +67,14 @@
             position: relative;
         }
 
-        /* شاشة الدخلة الهكرية */
+        /* شاشة الدخلة بلسان هادئ متناسق مع الموقع */
         #intro-screen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #000205;
+            background-color: var(--bg-color);
             z-index: 9999;
             display: flex;
             flex-direction: column;
@@ -91,7 +91,7 @@
             width: 100%;
             height: 100%;
             z-index: 1;
-            opacity: 0.45;
+            opacity: 0.35;
         }
 
         .hacker-top-badge {
@@ -135,7 +135,7 @@
             padding: 35px;
             max-width: 650px;
             width: 90%;
-            background: rgba(2, 6, 23, 0.9);
+            background: var(--card-bg);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(34, 197, 94, 0.3);
             border-radius: 20px;
@@ -183,7 +183,7 @@
         }
 
         .terminal-box {
-            background: rgba(0, 0, 0, 0.95);
+            background: rgba(0, 0, 0, 0.7);
             border: 1px solid rgba(34, 197, 94, 0.5);
             border-radius: 10px;
             padding: 14px 18px;
@@ -459,17 +459,17 @@
 </head>
 <body>
 
-    <!-- شاشة الدخلة الهكرية -->
+    <!-- شاشة الدخلة الهادئة (بدون لون أسود صريح) -->
     <div id="intro-screen">
         <div class="hacker-top-badge">SECURE_NODE // ROOT_ACCESS</div>
         <canvas id="intro-canvas"></canvas>
         <div class="intro-content">
             <div class="intro-logo-container">
-                <img src="logo.png" alt="سيف نوفا ستوديو Logo">
+                <img src="logo.png" alt="Saif Nova Studio Logo">
             </div>
-            <div class="intro-logo-text">سيف نوفا ستوديو</div>
-            <div class="intro-sub-text">Lead Developer: Eng. Seif</div>
-            <div class="terminal-box" id="terminal-text">> [AI INDEXER] Synchronizing SeifNova Studio with Google AI...</div>
+            <div class="intro-logo-text">Saif Nova Studio</div>
+            <div class="intro-sub-text">Lead Developer: Eng. Saif</div>
+            <div class="terminal-box" id="terminal-text">> [AI INDEXER] Synchronizing Saif Nova Studio with Google AI...</div>
             <div class="loading-bar-container">
                 <div class="loading-bar-fill" id="loading-bar"></div>
             </div>
@@ -480,7 +480,7 @@
 
     <!-- شريط التنقل (Navigation Bar) -->
     <div class="nav-bar">
-        <button class="nav-btn active" onclick="switchPage('home', 'سيف نوفا ستوديو - الرئيسية')">Home (الرئيسية)</button>
+        <button class="nav-btn active" onclick="switchPage('home', 'Saif Nova Studio - الرئيسية')">Home (الرئيسية)</button>
         <button class="nav-btn" onclick="switchPage('services', 'خدمات سيف نوفا ستوديو')">Services (الخدمات)</button>
         <button class="nav-btn" onclick="switchPage('termux', 'Termux CLI & Development Tools')">Termux & CLI (أدوات التيرمكس)</button>
         <button class="nav-btn" onclick="switchPage('experience', 'الخبرات والأنظمة الهندسية')">Experience (الخبرات)</button>
@@ -495,10 +495,10 @@
         <div id="home" class="page active">
             <div class="profile-card-3d">
                 <div class="profile-img-container">
-                    <img src="my-photo.jpg" alt="Eng. Seif">
+                    <img src="my-photo.jpg" alt="Eng. Saif">
                 </div>
-                <h1>مرحباً بك في سيف نوفا ستوديو (SeifNova Studio)</h1>
-                <p>مرحباً بك في <strong>سيف نوفا ستوديو</strong> بقيادة <strong>Eng. Seif</strong>. نقدم لك حلولاً برمجية متقدمة (Advanced Software Solutions)، هندسة أنظمة، وتصاميم ثلاثية الأبعاد احترافية (3D Visualization) مع بيئات عمل برمجية متكاملة.</p>
+                <h1>مرحباً بك في سيف نوفا ستوديو</h1>
+                <p>مرحباً بك في <strong>Saif Nova Studio</strong> (سيف نوفا ستوديو) بقيادة <strong>Eng. Saif</strong>. نقدم لك حلولاً برمجية متقدمة (Advanced Software Solutions)، هندسة أنظمة، وتصاميم ثلاثية الأبعاد احترافية (3D Visualization) مع بيئات عمل برمجية متكاملة.</p>
                 <button class="nav-btn" style="background: var(--primary); color: #fff; padding: 12px 25px; font-size: 1rem; border-radius: 12px;" onclick="switchPage('request', 'Project Request')">ابدأ مشروعك الآن مع سيف نوفا</button>
             </div>
         </div>
@@ -509,7 +509,7 @@
             <div class="grid-cards">
                 <div class="feature-card">
                     <h3>3D Modeling & Rendering</h3>
-                    <p>مجسمات هندسية وتصاميم واقعية مذهلة (High-End 3D Visualization) بدقة وإخراج بصري احترافي.</p>
+                    <p>مجسمات هندسية وتصاميم واقعية مذهلة (High-End 3D Visualization) بدقة وإخراج بصري احترافي من سيف نوفا ستوديو.</p>
                 </div>
                 <div class="feature-card">
                     <h3>Full-Stack Web Development</h3>
@@ -544,7 +544,7 @@
                 <div class="feature-card">
                     <h3>Git Repository Management</h3>
                     <p>إدارة مستودعات الكود المصدري، الـ Version Control، ورفع المشاريع مباشرة عبر الـ Terminal.</p>
-                    <div class="termux-code-box">git init && git add .<br>git commit -m "SeifNova Update"</div>
+                    <div class="termux-code-box">git init && git add .<br>git commit -m "Saif Nova Update"</div>
                 </div>
                 <div class="feature-card">
                     <h3>Node.js & Server Testing</h3>
@@ -645,14 +645,14 @@
         resizeIntroCanvas();
         window.addEventListener('resize', resizeIntroCanvas);
 
-        const hackerChars = "01010101010101010101SEIFNOVAX#_/*<>";
+        const hackerChars = "01010101010101010101SAIFNOVAX#_/*<>";
         const fSize = 14;
         let cCols = introCanvas.width / fSize;
         let cDrops = [];
         for (let i = 0; i < cCols; i++) { cDrops[i] = 1; }
 
         function drawHackerRain() {
-            introCtx.fillStyle = 'rgba(0, 2, 5, 0.15)';
+            introCtx.fillStyle = 'rgba(3, 7, 18, 0.2)';
             introCtx.fillRect(0, 0, introCanvas.width, introCanvas.height);
 
             introCtx.fillStyle = '#22c55e';
@@ -678,10 +678,10 @@
             const intro = document.getElementById('intro-screen');
 
             const steps = [
-                "> [SECURE ROOT] Establishing Secure CLI Link to Eng. Seif...",
-                "> [AI INDEXER] Registering SeifNova Studio with Google Knowledge Graph...",
+                "> [SECURE ROOT] Establishing Secure CLI Link to Eng. Saif...",
+                "> [AI INDEXER] Registering Saif Nova Studio with Google Knowledge Graph...",
                 "> [COMPILE] Building UI & Verifying 3D Shaders...",
-                "> ACCESS GRANTED. Welcome to SeifNova Studio..."
+                "> ACCESS GRANTED. Welcome to Saif Nova Studio..."
             ];
 
             let stepIndex = 0;
@@ -755,7 +755,7 @@
             const reqType = document.getElementById('request-type').value;
             const details = document.getElementById('project-details').value;
             
-            const message = `مرحباً سيف نوفا ستوديو (Eng. Seif)، أرغب في طلب خدمة:\n\n*Service Type:* ${reqType}\n\n*Project Details:* \n${details ? details : 'No additional details'}`;
+            const message = `مرحباً Saif Nova Studio (Eng. Saif)، أرغب في طلب خدمة:\n\n*Service Type:* ${reqType}\n\n*Project Details:* \n${details ? details : 'No additional details'}`;
             const encodedMessage = encodeURIComponent(message);
             window.open(`https://wa.me/201205293436?text=${encodedMessage}`, '_blank');
         }
