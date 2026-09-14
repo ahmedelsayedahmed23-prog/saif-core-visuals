@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eng. Saif | هندسة البرمجيات والتصاميم ثلاثية الأبعاد</title>
+    <title>NovaCodeX | هندسة البرمجيات والتصاميم ثلاثية الأبعاد</title>
     
-    <meta name="description" content="الموقع الرسمي للمهندس سيف - متخصص في هندسة البرمجيات، تطوير المواقع، وتصميمات الـ 3D المتقدمة." />
-    <meta name="keywords" content="المهندس سيف, Eng Saif, برمجة مواقع, تصميم 3D, تعديل أكواد" />
+    <meta name="description" content="الموقع الرسمي لـ NovaCodeX - مهندس سيف | متخصصون في هندسة البرمجيات، تطوير المواقع، وتصميمات الـ 3D المتقدمة." />
+    <meta name="keywords" content="NovaCodeX, مهندس سيف, برمجة مواقع, تصميم 3D, تعديل أكواد, هندسة برمجيات" />
     
-    <meta property="og:title" content="Eng. Saif | مهندس برمجيات ومصمم 3D" />
-    <meta property="og:description" content="تطوير الأنظمة، تصميمات الـ 3D، والحلول البرمجية المتكاملة." />
+    <meta property="og:title" content="NovaCodeX | مهندس سيف - مصمم 3D ومطور برمجيات" />
+    <meta property="og:description" content="تطوير الأنظمة، تصميمات الـ 3D، والحلول البرمجية المتكاملة مع المهندس سيف." />
     <meta property="og:image" content="logo.png" />
     <meta property="og:type" content="website" />
 
@@ -117,7 +117,6 @@
             box-shadow: 0 0 60px rgba(0, 0, 0, 0.9), var(--neon-glow);
         }
 
-        /* تعديل شكل اللوجو لشكل عصري غير دائري (مربع بحواف منسقة) */
         .intro-logo-container {
             width: 120px;
             height: 120px;
@@ -145,8 +144,16 @@
             background: linear-gradient(135deg, #fff, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 12px;
+            margin-bottom: 5px;
             letter-spacing: 2px;
+        }
+
+        .intro-sub-text {
+            color: #38bdf8;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
         }
 
         .terminal-box {
@@ -412,15 +419,16 @@
 </head>
 <body>
 
-    <!-- شاشة الدخلة الـ Hacker & 3D -->
+    <!-- شاشة الدخلة الـ Hacker & 3D (تظهر اسم براند NovaCodeX مع اسم المهندس سيف) -->
     <div id="intro-screen">
         <div class="hacker-top-badge">SECURE_NODE // ROOT_ACCESS</div>
         <canvas id="intro-canvas"></canvas>
         <div class="intro-content">
             <div class="intro-logo-container">
-                <img src="logo.png" alt="Eng. Saif Logo">
+                <img src="logo.png" alt="NovaCodeX Logo">
             </div>
-            <div class="intro-logo-text">ENG. SAIF STUDIO</div>
+            <div class="intro-logo-text">NOVACODEX</div>
+            <div class="intro-sub-text">إشراف وتقديم: المهندس سيف</div>
             <div class="terminal-box" id="terminal-text">> [INIT] Decrypting 3D Matrix & Compiling Code...</div>
             <div class="loading-bar-container">
                 <div class="loading-bar-fill" id="loading-bar"></div>
@@ -431,12 +439,12 @@
     <canvas id="matrix-canvas"></canvas>
 
     <div class="nav-bar">
-        <button class="nav-btn active" onclick="switchPage('home', 'الرئيسية | Eng. Saif Core')">الرئيسية (Home)</button>
+        <button class="nav-btn active" onclick="switchPage('home', 'الرئيسية | NovaCodeX Core')">الرئيسية (Home)</button>
         <button class="nav-btn" onclick="switchPage('services', 'الخدمات الهندسية والبرمجية')">الخدمات (Services)</button>
         <button class="nav-btn" onclick="switchPage('experience', 'سجل الخبرات والأعمال')">سجل الخبرات (Experience)</button>
         <button class="nav-btn" onclick="switchPage('portfolio', 'معرض النماذج البصرية')">معرض الأعمال (Portfolio)</button>
         <button class="nav-btn" onclick="switchPage('request', 'طلب مشروع أو تعديل برمجي')">طلب تعديل / مشروع (Request)</button>
-        <button class="nav-btn" onclick="switchPage('contact', 'تواصل مباشر مع المهندس سيف')">تواصل معي (Contact)</button>
+        <button class="nav-btn" onclick="switchPage('contact', 'تواصل مباشر مع فريق NovaCodeX')">تواصل معي (Contact)</button>
     </div>
 
     <div class="page-container">
@@ -445,10 +453,10 @@
         <div id="home" class="page active">
             <div class="profile-card-3d">
                 <div class="profile-img-container">
-                    <img src="my-photo.jpg" alt="Eng. Saif Photo">
+                    <img src="my-photo.jpg" alt="المهندس سيف">
                 </div>
                 <h1>مستقبل التصميم 3D والبرمجة بين يديك</h1>
-                <p>مرحباً بك، أنا المهندس سيف (Eng. Saif). أقدم لك هندسة برمجيات متقدمة، تصاميم ثلاثية الأبعاد احترافية (3D Visualization), وحلول وتعديلات برمجية مخصصة تلبي كافة احتياجاتك بدقة فائقة.</p>
+                <p>مرحباً بك في عالم <strong>NovaCodeX</strong> مع <strong>المهندس سيف</strong>. أقدم لك هندسة برمجيات متقدمة، تصاميم ثلاثية الأبعاد احترافية (3D Visualization)، وحلول وتعديلات برمجية مخصصة تلبي كافة احتياجاتك بدقة فائقة.</p>
                 <button class="nav-btn" style="background: var(--primary); color: #fff; padding: 12px 25px; font-size: 1rem; border-radius: 12px;" onclick="switchPage('request', 'طلب مشروع أو تعديل برمجي')">اطلب مشروعك أو تعديلك الآن</button>
             </div>
         </div>
@@ -513,7 +521,7 @@
                         <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="Programming Code">
                     </div>
                     <h3>هندسة البرمجيات والأكواد (Code Engineering)</h3>
-                    <p>هندسة برمجيات متطورة، أكواد نظيفة (Clean Code), وتطبيقات ذات كفاءة عالية.</p>
+                    <p>هندسة برمجيات متطورة، أكواد نظيفة (Clean Code)، وتطبيقات ذات كفاءة عالية.</p>
                 </div>
             </div>
         </div>
@@ -546,9 +554,9 @@
         <!-- 6. التواصل -->
         <div id="contact" class="page">
             <h2>تواصل مباشر (Direct Contact)</h2>
-            <p>أنا جاهز لتحويل فكرتك أو تنفيذ تعديلك البرمجي فوراً. تواصل معي مباشرة عبر الواتساب:</p>
+            <p>نحن جاهزون لتحويل فكرتك أو تنفيذ تعديلك البرمجي فوراً. تواصل معي مباشرة عبر الواتساب:</p>
             <a href="https://wa.me/201205293436" class="btn-whatsapp" target="_blank" style="margin-top: 10px;">
-                فتح محادثة الواتساب الفورية
+                فتح محادثة الواتساب الفورية مع المهندس سيف
             </a>
         </div>
 
@@ -634,10 +642,10 @@
             const intro = document.getElementById('intro-screen');
 
             const steps = [
-                "> [SECURE ROOT] Bypassing Firewall & Initializing...",
-                "> [3D ENGINE] Rendering Wireframes & Core Matrices...",
-                "> [DEV CORE] Compiling Eng. Saif Studio Architecture...",
-                "> ACCESS GRANTED. Loading Interface..."
+                "> [SECURE ROOT] Initializing Eng. Seif Core Architecture...",
+                "> [3D ENGINE] Rendering Wireframes & NovaCodeX Matrices...",
+                "> [DEV CORE] Compiling Security Protocols...",
+                "> ACCESS GRANTED. Welcome Eng. Seif..."
             ];
 
             let stepIndex = 0;
@@ -710,7 +718,7 @@
             const reqType = document.getElementById('request-type').value;
             const details = document.getElementById('project-details').value;
             
-            const message = `مرحباً المهندس سيف، أرغب في طلب خدمة:\n\n*نوع الطلب:* ${reqType}\n\n*التفاصيل والتعديلات المطلوبة:* \n${details ? details : 'بدون تفاصيل إضافية'}`;
+            const message = `مرحباً المهندس سيف (NovaCodeX)، أرغب في طلب خدمة:\n\n*نوع الطلب:* ${reqType}\n\n*التفاصيل والتعديلات المطلوبة:* \n${details ? details : 'بدون تفاصيل إضافية'}`;
             const encodedMessage = encodeURIComponent(message);
             window.open(`https://wa.me/201205293436?text=${encodedMessage}`, '_blank');
         }
