@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaCodeX | هندسة البرمجيات والتصاميم ثلاثية الأبعاد</title>
+    <title>SeifNova Studio | هندسة البرمجيات والتصاميم ثلاثية الأبعاد</title>
     
-    <meta name="description" content="الموقع الرسمي لـ NovaCodeX - مهندس سيف | متخصصون في هندسة البرمجيات، تطوير المواقع، وتصميمات الـ 3D المتقدمة." />
-    <meta name="keywords" content="NovaCodeX, مهندس سيف, برمجة مواقع, تصميم 3D, تعديل أكواد, هندسة برمجيات" />
+    <!-- إعدادات ظهور اللوجو والأيقونة على جوجل ومحركات البحث -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
     
-    <meta property="og:title" content="NovaCodeX | مهندس سيف - مصمم 3D ومطور برمجيات" />
+    <meta name="description" content="الموقع الرسمي لـ SeifNova Studio - المهندس سيف | متخصصون في هندسة البرمجيات، تطوير المواقع، وتصميمات الـ 3D المتقدمة." />
+    <meta name="keywords" content="SeifNova Studio, سيف نوفا, مهندس سيف, برمجة مواقع, تصميم 3D, تعديل أكواد, هندسة برمجيات" />
+    
+    <!-- Open Graph لتظهر صورة اللوجو واسم السيرفر في نتائج البحث والروابط -->
+    <meta property="og:title" content="SeifNova Studio | المهندس سيف - مصمم 3D ومطور برمجيات" />
     <meta property="og:description" content="تطوير الأنظمة، تصميمات الـ 3D، والحلول البرمجية المتكاملة مع المهندس سيف." />
     <meta property="og:image" content="logo.png" />
     <meta property="og:type" content="website" />
@@ -44,13 +49,14 @@
             position: relative;
         }
 
+        /* شاشة الدخلة الهكرية المتقدمة */
         #intro-screen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #010409;
+            background-color: #000205;
             z-index: 9999;
             display: flex;
             flex-direction: column;
@@ -67,6 +73,7 @@
             width: 100%;
             height: 100%;
             z-index: 1;
+            opacity: 0.45;
         }
 
         .hacker-top-badge {
@@ -74,15 +81,15 @@
             top: 25px;
             left: 30px;
             z-index: 3;
-            background: rgba(34, 197, 94, 0.1);
+            background: rgba(34, 197, 94, 0.15);
             color: #22c55e;
-            border: 1px solid rgba(34, 197, 94, 0.5);
+            border: 1px solid rgba(34, 197, 94, 0.6);
             padding: 8px 16px;
             border-radius: 12px;
             font-family: monospace;
             font-size: 0.85rem;
             letter-spacing: 1px;
-            box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
             display: flex;
             align-items: center;
             gap: 8px;
@@ -94,12 +101,12 @@
             height: 8px;
             background-color: #22c55e;
             border-radius: 50%;
-            box-shadow: 0 0 8px #22c55e;
-            animation: blink 1s infinite alternate;
+            box-shadow: 0 0 10px #22c55e;
+            animation: blink 0.8s infinite alternate;
         }
 
         @keyframes blink {
-            from { opacity: 0.3; }
+            from { opacity: 0.2; }
             to { opacity: 1; }
         }
 
@@ -110,21 +117,21 @@
             padding: 35px;
             max-width: 650px;
             width: 90%;
-            background: rgba(3, 7, 18, 0.85);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(59, 130, 246, 0.4);
+            background: rgba(2, 6, 23, 0.9);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(34, 197, 94, 0.3);
             border-radius: 20px;
-            box-shadow: 0 0 60px rgba(0, 0, 0, 0.9), var(--neon-glow);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.95), 0 0 30px rgba(34, 197, 94, 0.15);
         }
 
         .intro-logo-container {
-            width: 120px;
-            height: 120px;
+            width: 110px;
+            height: 110px;
             margin: 0 auto 15px auto;
-            border-radius: 24px;
+            border-radius: 22px;
             padding: 4px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            box-shadow: var(--neon-glow);
+            background: linear-gradient(135deg, #22c55e, var(--primary));
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -133,19 +140,20 @@
         .intro-logo-container img {
             width: 100%;
             height: 100%;
-            border-radius: 20px;
+            border-radius: 18px;
             object-fit: cover;
             display: block;
         }
 
         .intro-logo-text {
-            font-size: 2.1rem;
+            font-size: 2rem;
             font-weight: 900;
-            background: linear-gradient(135deg, #fff, var(--primary), var(--accent));
+            background: linear-gradient(135deg, #fff, #22c55e, var(--primary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 5px;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+            font-family: monospace;
         }
 
         .intro-sub-text {
@@ -157,8 +165,8 @@
         }
 
         .terminal-box {
-            background: rgba(1, 4, 9, 0.95);
-            border: 1px solid rgba(34, 197, 94, 0.3);
+            background: rgba(0, 0, 0, 0.95);
+            border: 1px solid rgba(34, 197, 94, 0.5);
             border-radius: 10px;
             padding: 14px 18px;
             font-family: monospace;
@@ -167,7 +175,7 @@
             text-align: left;
             direction: ltr;
             min-height: 55px;
-            box-shadow: inset 0 0 15px rgba(0,0,0,0.9);
+            box-shadow: inset 0 0 20px rgba(0,255,0,0.1);
         }
 
         .loading-bar-container {
@@ -177,15 +185,15 @@
             border-radius: 3px;
             margin-top: 20px;
             overflow: hidden;
-            border: 1px solid rgba(59, 130, 246, 0.3);
+            border: 1px solid rgba(34, 197, 94, 0.3);
         }
 
         .loading-bar-fill {
             height: 100%;
             width: 0%;
-            background: linear-gradient(90deg, var(--primary), var(--accent), #22c55e);
+            background: linear-gradient(90deg, #22c55e, var(--primary), var(--accent));
             transition: width 2.8s cubic-bezier(0.1, 0.8, 0.3, 1);
-            box-shadow: 0 0 15px var(--primary);
+            box-shadow: 0 0 15px #22c55e;
         }
 
         #matrix-canvas {
@@ -419,17 +427,17 @@
 </head>
 <body>
 
-    <!-- شاشة الدخلة الـ Hacker & 3D (تظهر اسم براند NovaCodeX مع اسم المهندس سيف) -->
+    <!-- شاشة الدخلة الهكرية -->
     <div id="intro-screen">
         <div class="hacker-top-badge">SECURE_NODE // ROOT_ACCESS</div>
         <canvas id="intro-canvas"></canvas>
         <div class="intro-content">
             <div class="intro-logo-container">
-                <img src="logo.png" alt="NovaCodeX Logo">
+                <img src="logo.png" alt="SeifNova Studio Logo">
             </div>
-            <div class="intro-logo-text">NOVACODEX</div>
-            <div class="intro-sub-text">إشراف وتقديم: المهندس سيف</div>
-            <div class="terminal-box" id="terminal-text">> [INIT] Decrypting 3D Matrix & Compiling Code...</div>
+            <div class="intro-logo-text">SEIFNOVA STUDIO</div>
+            <div class="intro-sub-text">إشراف وتقديم: Eng. Seif</div>
+            <div class="terminal-box" id="terminal-text">> [INIT] Bypassing Firewall & Decrypting Matrix...</div>
             <div class="loading-bar-container">
                 <div class="loading-bar-fill" id="loading-bar"></div>
             </div>
@@ -439,12 +447,12 @@
     <canvas id="matrix-canvas"></canvas>
 
     <div class="nav-bar">
-        <button class="nav-btn active" onclick="switchPage('home', 'الرئيسية | NovaCodeX Core')">الرئيسية (Home)</button>
+        <button class="nav-btn active" onclick="switchPage('home', 'الرئيسية | SeifNova Studio Core')">الرئيسية (Home)</button>
         <button class="nav-btn" onclick="switchPage('services', 'الخدمات الهندسية والبرمجية')">الخدمات (Services)</button>
         <button class="nav-btn" onclick="switchPage('experience', 'سجل الخبرات والأعمال')">سجل الخبرات (Experience)</button>
         <button class="nav-btn" onclick="switchPage('portfolio', 'معرض النماذج البصرية')">معرض الأعمال (Portfolio)</button>
         <button class="nav-btn" onclick="switchPage('request', 'طلب مشروع أو تعديل برمجي')">طلب تعديل / مشروع (Request)</button>
-        <button class="nav-btn" onclick="switchPage('contact', 'تواصل مباشر مع فريق NovaCodeX')">تواصل معي (Contact)</button>
+        <button class="nav-btn" onclick="switchPage('contact', 'تواصل مباشر مع SeifNova Studio')">تواصل معي (Contact)</button>
     </div>
 
     <div class="page-container">
@@ -453,10 +461,10 @@
         <div id="home" class="page active">
             <div class="profile-card-3d">
                 <div class="profile-img-container">
-                    <img src="my-photo.jpg" alt="المهندس سيف">
+                    <img src="my-photo.jpg" alt="Eng. Seif">
                 </div>
                 <h1>مستقبل التصميم 3D والبرمجة بين يديك</h1>
-                <p>مرحباً بك في عالم <strong>NovaCodeX</strong> مع <strong>المهندس سيف</strong>. أقدم لك هندسة برمجيات متقدمة، تصاميم ثلاثية الأبعاد احترافية (3D Visualization)، وحلول وتعديلات برمجية مخصصة تلبي كافة احتياجاتك بدقة فائقة.</p>
+                <p>مرحباً بك في عالم <strong>SeifNova Studio</strong> بقيادة <strong>Eng. Seif</strong>. أقدم لك هندسة برمجيات متقدمة، تصاميم ثلاثية الأبعاد احترافية (3D Visualization)، وحلول وتعديلات برمجية مخصصة تلبي كافة احتياجاتك بدقة فائقة.</p>
                 <button class="nav-btn" style="background: var(--primary); color: #fff; padding: 12px 25px; font-size: 1rem; border-radius: 12px;" onclick="switchPage('request', 'طلب مشروع أو تعديل برمجي')">اطلب مشروعك أو تعديلك الآن</button>
             </div>
         </div>
@@ -556,13 +564,14 @@
             <h2>تواصل مباشر (Direct Contact)</h2>
             <p>نحن جاهزون لتحويل فكرتك أو تنفيذ تعديلك البرمجي فوراً. تواصل معي مباشرة عبر الواتساب:</p>
             <a href="https://wa.me/201205293436" class="btn-whatsapp" target="_blank" style="margin-top: 10px;">
-                فتح محادثة الواتساب الفورية مع المهندس سيف
+                فتح محادثة الواتساب الفورية مع SeifNova Studio
             </a>
         </div>
 
     </div>
 
     <script>
+        // إعداد خلفية هكرية ريندر سريعة (Matrix Rain مكثفة في الدخلة)
         const introCanvas = document.getElementById('intro-canvas');
         const introCtx = introCanvas.getContext('2d');
 
@@ -573,79 +582,43 @@
         resizeIntroCanvas();
         window.addEventListener('resize', resizeIntroCanvas);
 
-        let rotX = 0;
-        let rotY = 0;
-        const vertices = [
-            [-1, -1, -1], [1, -1, -1], [1, 1, -1], [-1, 1, -1],
-            [-1, -1, 1], [1, -1, 1], [1, 1, 1], [-1, 1, 1]
-        ];
-        const edges = [
-            [0,1],[1,2],[2,3],[3,0],
-            [4,5],[5,6],[6,7],[7,4],
-            [0,4],[1,5],[2,6],[3,7]
-        ];
+        const hackerChars = "01010101010101010101SEIFNOVAX#_/*<>";
+        const fSize = 14;
+        let cCols = introCanvas.width / fSize;
+        let cDrops = [];
+        for (let i = 0; i < cCols; i++) { cDrops[i] = 1; }
 
-        function draw3DObject() {
-            introCtx.fillStyle = 'rgba(1, 4, 9, 0.3)';
+        function drawHackerRain() {
+            introCtx.fillStyle = 'rgba(0, 2, 5, 0.15)';
             introCtx.fillRect(0, 0, introCanvas.width, introCanvas.height);
 
-            const cx = introCanvas.width / 2;
-            const cy = introCanvas.height / 2;
-            const scale = Math.min(introCanvas.width, introCanvas.height) * 0.35;
+            introCtx.fillStyle = '#22c55e';
+            introCtx.font = fSize + 'px monospace';
 
-            rotX += 0.02;
-            rotY += 0.03;
+            for (let i = 0; i < cDrops.length; i++) {
+                let char = hackerChars.charAt(Math.floor(Math.random() * hackerChars.length));
+                introCtx.fillText(char, i * fSize, cDrops[i] * fSize);
 
-            let projected = [];
-            for (let i = 0; i < vertices.length; i++) {
-                let v = vertices[i];
-                let x = v[0], y = v[1], z = v[2];
-
-                let x1 = x * Math.cos(rotY) - z * Math.sin(rotY);
-                let z1 = x * Math.sin(rotY) + z * Math.cos(rotY);
-
-                let y2 = y * Math.cos(rotX) - z1 * Math.sin(rotX);
-                let z2 = y * Math.sin(rotX) + z1 * Math.cos(rotX);
-
-                let distance = 3;
-                let fov = scale / (z2 + distance);
-
-                projected.push({
-                    x: cx + x1 * fov,
-                    y: cy + y2 * fov
-                });
+                if (cDrops[i] * fSize > introCanvas.height && Math.random() > 0.95) {
+                    cDrops[i] = 0;
+                }
+                cDrops[i]++;
             }
-
-            introCtx.strokeStyle = 'rgba(59, 130, 246, 0.7)';
-            introCtx.lineWidth = 2;
-            introCtx.shadowBlur = 15;
-            introCtx.shadowColor = '#3b82f6';
-
-            for (let i = 0; i < edges.length; i++) {
-                let p1 = projected[edges[i][0]];
-                let p2 = projected[edges[i][1]];
-
-                introCtx.beginPath();
-                introCtx.moveTo(p1.x, p1.y);
-                introCtx.lineTo(p2.x, p2.y);
-                introCtx.stroke();
-            }
-
-            introCtx.shadowBlur = 0;
-            requestAnimationFrame(draw3DObject);
+            requestAnimationFrame(drawHackerRain);
         }
-        draw3DObject();
+        drawHackerRain();
 
+        // تتابع Terminal التشغيل
         window.addEventListener('DOMContentLoaded', () => {
             const terminal = document.getElementById('terminal-text');
             const bar = document.getElementById('loading-bar');
             const intro = document.getElementById('intro-screen');
 
             const steps = [
-                "> [SECURE ROOT] Initializing Eng. Seif Core Architecture...",
-                "> [3D ENGINE] Rendering Wireframes & NovaCodeX Matrices...",
-                "> [DEV CORE] Compiling Security Protocols...",
-                "> ACCESS GRANTED. Welcome Eng. Seif..."
+                "> [SECURE ROOT] Establishing Secure Link to Eng. Seif...",
+                "> [MATRIX CORE] Injecting SeifNova Studio Protocols...",
+                "> [COMPILE] Building UI & Verifying 3D Shaders...",
+                "> ACCESS GRANTED. Welcome to SeifNova Studio..."
             ];
 
             let stepIndex = 0;
@@ -666,6 +639,7 @@
             }, 2800);
         });
 
+        // خلفية Matrix للموقع الأساسي
         const canvas = document.getElementById('matrix-canvas');
         const ctx = canvas.getContext('2d');
 
@@ -718,7 +692,7 @@
             const reqType = document.getElementById('request-type').value;
             const details = document.getElementById('project-details').value;
             
-            const message = `مرحباً المهندس سيف (NovaCodeX)، أرغب في طلب خدمة:\n\n*نوع الطلب:* ${reqType}\n\n*التفاصيل والتعديلات المطلوبة:* \n${details ? details : 'بدون تفاصيل إضافية'}`;
+            const message = `مرحباً SeifNova Studio (Eng. Seif)، أرغب في طلب خدمة:\n\n*نوع الطلب:* ${reqType}\n\n*التفاصيل والتعديلات المطلوبة:* \n${details ? details : 'بدون تفاصيل إضافية'}`;
             const encodedMessage = encodeURIComponent(message);
             window.open(`https://wa.me/201205293436?text=${encodedMessage}`, '_blank');
         }
