@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saif Nova Studio - سيف نوفا ستوديو | Software Engineering & 3D Design</title>
+    <title>Saif Nova Dev | سيف نوفا - Software Engineering & 3D Design</title>
     
     <!-- Favicon & Open Graph -->
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="apple-touch-icon" href="logo.png">
     
-    <meta name="description" content="الموقع الرسمي لـ Saif Nova Studio (سيف نوفا ستوديو) بقيادة Eng. Saif | هندسة البرمجيات، تطوير الويب، أدوات تيرمكس، والتصميم ثلاثي الأبعاد." />
-    <meta name="keywords" content="Saif Nova Studio, سيف نوفا ستوديو, Eng. Saif, Termux Tools, Web Development, 3D Design, Software Engineering, برمجة, تيرمكس" />
+    <meta name="description" content="الموقع الرسمي لـ Saif Nova Dev بقيادة Eng. Saif | هندسة البرمجيات، تطوير الويب، أدوات تيرمكس، والتصميم ثلاثي الأبعاد." />
+    <meta name="keywords" content="Saif Nova Dev, سيف نوفا, Eng. Saif, Termux Tools, Web Development, 3D Design, Software Engineering, برمجة, تيرمكس" />
     
-    <meta property="og:title" content="Saif Nova Studio | سيف نوفا ستوديو - Software Developer" />
-    <meta property="og:description" content="أنظمة متقدمة، سكربتات تيرمكس، وتصاميم 3D احترافية مع Saif Nova Studio." />
+    <meta property="og:title" content="Saif Nova Dev | سيف نوفا - Software Developer" />
+    <meta property="og:description" content="أنظمة متقدمة، سكربتات تيرمكس، وتصاميم 3D احترافية مع Saif Nova Dev." />
     <meta property="og:image" content="logo.png" />
     <meta property="og:type" content="website" />
 
@@ -22,16 +22,16 @@
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "Saif Nova Studio",
-      "alternateName": "سيف نوفا ستوديو",
-      "url": "https://ahmedelsayedahmed23-prog.github.io/saif-core-visuals/",
+      "name": "Saif Nova Dev",
+      "alternateName": "سيف نوفا",
+      "url": "https://saifnova.dev",
       "logo": "logo.png",
       "founder": {
         "@type": "Person",
         "name": "Eng. Saif",
         "jobTitle": "Software Engineer & 3D Designer"
       },
-      "description": "استوديو هندسة برمجيات، تطوير ويب، تصميم ثلاثي الأبعاد 3D، وأدوات سطر الأوامر و Termux في Saif Nova Studio بقيادة المهندس Saif.",
+      "description": "استوديو هندسة برمجيات، تطوير ويب، تصميم ثلاثي الأبعاد 3D، وأدوات سطر الأوامر و Termux بقيادة المهندس Saif.",
       "knowsAbout": ["Software Engineering", "3D Visualization", "Termux CLI Tools", "Web Development", "Python Automation"]
     }
     </script>
@@ -85,7 +85,6 @@
             perspective: 1400px;
         }
 
-        /* كانفاس شبكة النانو البرمجية ثلاثية الأبعاد في الدخلة */
         #intro-canvas {
             position: absolute;
             top: 0;
@@ -129,7 +128,6 @@
             to { opacity: 1; }
         }
 
-        /* لوحة برمجية 3D تلف تلقائياً لوحدها بشكل هولوغرافي فخم */
         .intro-content {
             position: relative;
             z-index: 2;
@@ -147,15 +145,9 @@
         }
 
         @keyframes autoRotate3D {
-            0% {
-                transform: rotateX(8deg) rotateY(-12deg) translateY(0px);
-            }
-            50% {
-                transform: rotateX(-8deg) rotateY(12deg) translateY(-10px);
-            }
-            100% {
-                transform: rotateX(8deg) rotateY(-12deg) translateY(0px);
-            }
+            0% { transform: rotateX(8deg) rotateY(-12deg) translateY(0px); }
+            50% { transform: rotateX(-8deg) rotateY(12deg) translateY(-10px); }
+            100% { transform: rotateX(8deg) rotateY(-12deg) translateY(0px); }
         }
 
         .intro-logo-container {
@@ -303,14 +295,8 @@
         }
 
         @keyframes pageEnter {
-            from {
-                opacity: 0;
-                transform: translateY(30px) rotateX(-10deg);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) rotateX(0);
-            }
+            from { opacity: 0; transform: translateY(30px) rotateX(-10deg); }
+            to { opacity: 1; transform: translateY(0) rotateX(0); }
         }
 
         .profile-card-3d {
@@ -482,15 +468,15 @@
 
     <!-- شاشة الدخلة مع شبكة النانو البرمجية ثلاثية الأبعاد -->
     <div id="intro-screen">
-        <div class="hacker-top-badge">SECURE_NODE // NANO_GRID</div>
+        <div class="hacker-top-badge">SECURE_NODE // saifnova.dev</div>
         <canvas id="intro-canvas"></canvas>
         <div class="intro-content">
             <div class="intro-logo-container">
-                <img src="logo.png" alt="Saif Nova Studio Logo">
+                <img src="logo.png" alt="Saif Nova Dev Logo">
             </div>
-            <div class="intro-logo-text">Saif Nova Studio</div>
+            <div class="intro-logo-text">saifnova.dev</div>
             <div class="intro-sub-text">Lead Developer: Eng. Saif</div>
-            <div class="terminal-box" id="terminal-text">> [NANO MATRIX] Initializing 3D Programming Nodes...</div>
+            <div class="terminal-box" id="terminal-text">> [NANO MATRIX] Initializing saifnova.dev 3D Nodes...</div>
             <div class="loading-bar-container">
                 <div class="loading-bar-fill" id="loading-bar"></div>
             </div>
@@ -501,13 +487,13 @@
 
     <!-- شريط التنقل (Navigation Bar) -->
     <div class="nav-bar">
-        <button class="nav-btn active" onclick="switchPage('home', 'Saif Nova Studio - الرئيسية')">Home (الرئيسية)</button>
-        <button class="nav-btn" onclick="switchPage('services', 'خدمات سيف نوفا ستوديو')">Services (الخدمات)</button>
+        <button class="nav-btn active" onclick="switchPage('home', 'saifnova.dev - الرئيسية')">Home (الرئيسية)</button>
+        <button class="nav-btn" onclick="switchPage('services', 'خدمات saifnova.dev')">Services (الخدمات)</button>
         <button class="nav-btn" onclick="switchPage('termux', 'Termux CLI & Development Tools')">Termux & CLI (أدوات التيرمكس)</button>
         <button class="nav-btn" onclick="switchPage('experience', 'الخبرات والأنظمة الهندسية')">Experience (الخبرات)</button>
-        <button class="nav-btn" onclick="switchPage('portfolio', 'معرض أعمال سيف نوفا ستوديو')">Portfolio (المعرض)</button>
+        <button class="nav-btn" onclick="switchPage('portfolio', 'معرض أعمال saifnova.dev')">Portfolio (المعرض)</button>
         <button class="nav-btn" onclick="switchPage('request', 'حاسبة طلب مشروع')">Request (طلب مشروع)</button>
-        <button class="nav-btn" onclick="switchPage('contact', 'تواصل مع سيف نوفا ستوديو')">Contact (تواصل)</button>
+        <button class="nav-btn" onclick="switchPage('contact', 'تواصل مع saifnova.dev')">Contact (تواصل)</button>
     </div>
 
     <div class="page-container">
@@ -518,19 +504,19 @@
                 <div class="profile-img-container">
                     <img src="my-photo.jpg" alt="Eng. Saif">
                 </div>
-                <h1>مرحباً بك في سيف نوفا ستوديو</h1>
-                <p>مرحباً بك في <strong>Saif Nova Studio</strong> (سيف نوفا ستوديو) بقيادة <strong>Eng. Saif</strong>. نقدم لك حلولاً برمجية متقدمة (Advanced Software Solutions)، هندسة أنظمة، وتصاميم ثلاثية الأبعاد احترافية (3D Visualization) مع بيئات عمل برمجية متكاملة.</p>
-                <button class="nav-btn" style="background: var(--primary); color: #fff; padding: 12px 25px; font-size: 1rem; border-radius: 12px;" onclick="switchPage('request', 'Project Request')">ابدأ مشروعك الآن مع سيف نوفا</button>
+                <h1>مرحباً بك في saifnova.dev</h1>
+                <p>مرحباً بك في منصة <strong>saifnova.dev</strong> بقيادة <strong>Eng. Saif</strong>. نقدم لك حلولاً برمجية متقدمة (Advanced Software Solutions)، هندسة أنظمة، وتصاميم ثلاثية الأبعاد احترافية (3D Visualization) مع بيئات عمل برمجية متكاملة.</p>
+                <button class="nav-btn" style="background: var(--primary); color: #fff; padding: 12px 25px; font-size: 1rem; border-radius: 12px;" onclick="switchPage('request', 'Project Request')">ابدأ مشروعك الآن مع saifnova.dev</button>
             </div>
         </div>
 
         <!-- 2. الخدمات (Services) -->
         <div id="services" class="page">
-            <h2>خدمات سيف نوفا ستوديو الهندسية والبرمجية</h2>
+            <h2>خدمات saifnova.dev الهندسية والبرمجية</h2>
             <div class="grid-cards">
                 <div class="feature-card">
                     <h3>3D Modeling & Rendering</h3>
-                    <p>مجسمات هندسية وتصاميم واقعية مذهلة (High-End 3D Visualization) بدقة وإخراج بصري احترافي من سيف نوفا ستوديو.</p>
+                    <p>مجسمات هندسية وتصاميم واقعية مذهلة (High-End 3D Visualization) بدقة وإخراج بصري احترافي.</p>
                 </div>
                 <div class="feature-card">
                     <h3>Full-Stack Web Development</h3>
@@ -565,7 +551,7 @@
                 <div class="feature-card">
                     <h3>Git Repository Management</h3>
                     <p>إدارة مستودعات الكود المصدري، الـ Version Control، ورفع المشاريع مباشرة عبر الـ Terminal.</p>
-                    <div class="termux-code-box">git init && git add .<br>git commit -m "Saif Nova Update"</div>
+                    <div class="termux-code-box">git init && git add .<br>git commit -m "saifnova.dev update"</div>
                 </div>
                 <div class="feature-card">
                     <h3>Node.js & Server Testing</h3>
@@ -578,7 +564,7 @@
         <!-- 4. سجل الخبرات والأعمال (Experience) -->
         <div id="experience" class="page">
             <h2>Corporate Experience & Systems</h2>
-            <p>سجل حافل بالحلول التقنية والبرمجية والهندسية المنفذة باحترافية تامة للشركات عبر سيف نوفا ستوديو:</p>
+            <p>سجل حافل بالحلول التقنية والبرمجية والهندسية المنفذة باحترافية تامة للشركات عبر saifnova.dev:</p>
             <div class="grid-cards">
                 <div class="feature-card">
                     <h3>Power Plast Company</h3>
@@ -598,7 +584,7 @@
         <!-- 5. معرض الأعمال (Portfolio) -->
         <div id="portfolio" class="page">
             <h2>3D Visualization & Software Portfolio</h2>
-            <p>معرض النماذج البصرية والهندسية ومشاريع التطوير البرمجي لـ سيف نوفا ستوديو:</p>
+            <p>معرض النماذج البصرية والهندسية ومشاريع التطوير البرمجي لـ saifnova.dev:</p>
             <div class="grid-cards">
                 <div class="feature-card">
                     <div class="portfolio-img-box">
@@ -646,7 +632,7 @@
         <!-- 7. التواصل (Contact) -->
         <div id="contact" class="page">
             <h2>Direct Contact & Technical Support</h2>
-            <p>جاهزون لتنفيذ طلباتك البرمجية وتطوير أدوات الـ CLI والـ Termux فوراً. تواصل مع سيف نوفا ستوديو مباشرة:</p>
+            <p>جاهزون لتنفيذ طلباتك البرمجية وتطوير أدوات الـ CLI والـ Termux فوراً. تواصل مع saifnova.dev مباشرة:</p>
             <a href="https://wa.me/201205293436" class="btn-whatsapp" target="_blank" style="margin-top: 10px;">
                 Open WhatsApp Direct Chat (فتح محادثة واتساب)
             </a>
@@ -655,7 +641,7 @@
     </div>
 
     <script>
-        // إعداد شبكة النانو والجسيمات البرمجية ثلاثية الأبعاد (Nano Programming Nodes 3D Grid) في الدخلة
+        // إعداد شبكة النانو والجسيمات البرمجية ثلاثية الأبعاد (Nano Programming Nodes 3D Grid)
         const introCanvas = document.getElementById('intro-canvas');
         const introCtx = introCanvas.getContext('2d');
 
@@ -666,7 +652,6 @@
         resizeIntroCanvas();
         window.addEventListener('resize', resizeIntroCanvas);
 
-        // إنشاء شبكة نانو ثلاثية الأبعاد من النقاط والروابط
         let nanoParticles = [];
         const numParticles = 65;
 
@@ -674,7 +659,7 @@
             nanoParticles.push({
                 x: (Math.random() - 0.5) * window.innerWidth * 1.5,
                 y: (Math.random() - 0.5) * window.innerHeight * 1.5,
-                z: Math.random() * 500 - 250, // عمق ثلاثي الأبعاد
+                z: Math.random() * 500 - 250,
                 vx: (Math.random() - 0.5) * 1.2,
                 vy: (Math.random() - 0.5) * 1.2,
                 vz: (Math.random() - 0.5) * 1.2,
@@ -688,28 +673,23 @@
 
             let cx = introCanvas.width / 2;
             let cy = introCanvas.height / 2;
-            let fov = 400; // منظور الـ 3D
+            let fov = 400;
 
-            // تحديث ورسم الروابط والجسيمات
             for (let i = 0; i < nanoParticles.length; i++) {
                 let p = nanoParticles[i];
 
-                // حركة في الفضاء الثلاثي الأبعاد
                 p.x += p.vx;
                 p.y += p.vy;
                 p.z += p.vz;
 
-                // الارتداد عند الحواف الفضائية
                 if (p.x < -cx || p.x > cx) p.vx *= -1;
                 if (p.y < -cy || p.y > cy) p.vy *= -1;
                 if (p.z < -250 || p.z > 250) p.vz *= -1;
 
-                // إسقاط المنظور ثلاثي الأبعاد (Perspective Projection)
                 let scale = fov / (fov + p.z);
                 let x2d = cx + p.x * scale;
                 let y2d = cy + p.y * scale;
 
-                // رسم عقدة النانو
                 if (scale > 0) {
                     introCtx.fillStyle = p.z > 0 ? '#3b82f6' : '#22c55e';
                     introCtx.shadowBlur = 12;
@@ -719,7 +699,6 @@
                     introCtx.fill();
                     introCtx.shadowBlur = 0;
 
-                    // ربط النقاط القريبة لعمل شبكة نانو برمجية
                     for (let j = i + 1; j < nanoParticles.length; j++) {
                         let p2 = nanoParticles[j];
                         let dx = p.x - p2.x;
@@ -753,10 +732,10 @@
             const intro = document.getElementById('intro-screen');
 
             const steps = [
-                "> [NANO GRID] Compiling 3D Quantum Shaders...",
+                "> [NANO GRID] Compiling saifnova.dev 3D Shaders...",
                 "> [SECURE ROOT] Establishing Secure CLI Link to Eng. Saif...",
-                "> [AI INDEXER] Registering Saif Nova Studio with Google Knowledge Graph...",
-                "> ACCESS GRANTED. Welcome to Saif Nova Studio..."
+                "> [AI INDEXER] Registering saifnova.dev with Google Knowledge Graph...",
+                "> ACCESS GRANTED. Welcome to saifnova.dev..."
             ];
 
             let stepIndex = 0;
@@ -830,7 +809,7 @@
             const reqType = document.getElementById('request-type').value;
             const details = document.getElementById('project-details').value;
             
-            const message = `مرحباً Saif Nova Studio (Eng. Saif)، أرغب في طلب خدمة:\n\n*Service Type:* ${reqType}\n\n*Project Details:* \n${details ? details : 'No additional details'}`;
+            const message = `مرحباً saifnova.dev (Eng. Saif)، أرغب في طلب خدمة:\n\n*Service Type:* ${reqType}\n\n*Project Details:* \n${details ? details : 'No additional details'}`;
             const encodedMessage = encodeURIComponent(message);
             window.open(`https://wa.me/201205293436?text=${encodedMessage}`, '_blank');
         }
