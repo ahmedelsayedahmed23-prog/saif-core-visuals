@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الرئيسية | Saif Core - Ultimate 3D & Programming Studio</title>
+    <title>الرئيسية | Eng. Saif Core - Ultimate 3D & Programming Studio</title>
     <style>
         :root {
             --bg-color: #030712;
@@ -35,7 +35,69 @@
             position: relative;
         }
 
-        /* خلفية الأكواد البرمجية المتحركة (Matrix Tech Background) */
+        /* شاشة الدخلة البرمجية (Intro Splash Screen) */
+        #intro-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #010409;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .intro-content {
+            text-align: center;
+            padding: 20px;
+            max-width: 600px;
+        }
+
+        .intro-logo-text {
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .terminal-box {
+            background: rgba(13, 17, 23, 0.9);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 15px 20px;
+            font-family: monospace;
+            color: #38bdf8;
+            font-size: 0.95rem;
+            text-align: left;
+            direction: ltr;
+            min-height: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .loading-bar-container {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .loading-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 2.2s cubic-bezier(0.1, 0.8, 0.3, 1);
+        }
+
+        /* خلفية الأكواد البرمجية المتحركة */
         #matrix-canvas {
             position: fixed;
             top: 0;
@@ -43,7 +105,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.25; /* شفافية موزونة عشان تظهر بوضوح من غير ما تغطي على الكلام */
+            opacity: 0.25;
         }
 
         /* شريط التنقل الفاخر */
@@ -188,7 +250,6 @@
             background: rgba(59, 130, 246, 0.04);
         }
 
-        /* تصميم معرض الصور الحقيقية */
         .portfolio-img-box {
             width: 100%;
             height: 180px;
@@ -210,7 +271,6 @@
             transform: scale(1.08);
         }
 
-        /* عناصر الفورم والحاسبة وتعديل الأكواد */
         .calc-group {
             margin-bottom: 20px;
         }
@@ -273,17 +333,28 @@
 </head>
 <body>
 
+    <!-- شاشة البداية البرمجية (Intro Splash Screen) -->
+    <div id="intro-screen">
+        <div class="intro-content">
+            <div class="intro-logo-text">ENG. SAIF STUDIO</div>
+            <div class="terminal-box" id="terminal-text">> Initializing Eng. Saif core modules...</div>
+            <div class="loading-bar-container">
+                <div class="loading-bar-fill" id="loading-bar"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- خلفية الأكواد البرمجية المتحركة -->
     <canvas id="matrix-canvas"></canvas>
 
     <!-- أزرار التنقل الفاخرة -->
     <div class="nav-bar">
-        <button class="nav-btn active" onclick="switchPage('home', 'الرئيسية | Saif Core - Ultimate 3D & Programming Studio')">الرئيسية (Home)</button>
+        <button class="nav-btn active" onclick="switchPage('home', 'الرئيسية | Eng. Saif Core - Ultimate 3D & Programming Studio')">الرئيسية (Home)</button>
         <button class="nav-btn" onclick="switchPage('services', 'الخدمات الهندسية والبرمجية | Engineering & Dev Services')">الخدمات (Services)</button>
         <button class="nav-btn" onclick="switchPage('experience', 'سجل الخبرات والأعمال | Corporate Experience & Portfolio')">سجل الخبرات (Experience)</button>
         <button class="nav-btn" onclick="switchPage('portfolio', 'معرض النماذج البصرية | 3D Visualization & Code Showcase')">معرض الأعمال (Portfolio)</button>
         <button class="nav-btn" onclick="switchPage('request', 'طلب مشروع أو تعديل برمجي | Project Request & Calculator')">طلب تعديل / مشروع (Request)</button>
-        <button class="nav-btn" onclick="switchPage('contact', 'تواصل مباشر مع باشمهندس سيف | Direct Contact')">تواصل معي (Contact)</button>
+        <button class="nav-btn" onclick="switchPage('contact', 'تواصل مباشر مع المهندس سيف | Direct Contact')">تواصل معي (Contact)</button>
     </div>
 
     <div class="page-container">
@@ -292,10 +363,10 @@
         <div id="home" class="page active">
             <div class="profile-card-3d">
                 <div class="profile-img-container">
-                    <img src="my-photo.jpg" alt="Bashmohndes Saif">
+                    <img src="my-photo.jpg" alt="Eng. Saif">
                 </div>
                 <h1>مستقبل التصميم 3D والبرمجة بين يديك</h1>
-                <p>مرحباً بك، أنا باشمهندس سيف. أقدم لك هندسة برمجيات متقدمة، تصاميم ثلاثية الأبعاد احترافية (3D Visualization)، وحلول وتعديلات برمجية مخصصة تلبي كافة احتياجاتك بدقة فائقة.</p>
+                <p>مرحباً بك، أنا المهندس سيف (Eng. Saif). أقدم لك هندسة برمجيات متقدمة، تصاميم ثلاثية الأبعاد احترافية (3D Visualization)، وحلول وتعديلات برمجية مخصصة تلبي كافة احتياجاتك بدقة فائقة.</p>
                 <button class="nav-btn" style="background: var(--primary); color: #fff; padding: 12px 25px; font-size: 1rem; border-radius: 12px;" onclick="switchPage('request', 'طلب مشروع أو تعديل برمجي | Project Request & Calculator')">اطلب مشروعك أو تعديلك الآن</button>
             </div>
         </div>
@@ -402,6 +473,40 @@
     </div>
 
     <script>
+        // تشغيل تأثير الدخلة البرمجية (Intro Sequence)
+        window.addEventListener('DOMContentLoaded', () => {
+            const terminal = document.getElementById('terminal-text');
+            const bar = document.getElementById('loading-bar');
+            const intro = document.getElementById('intro-screen');
+
+            const steps = [
+                "> Initializing Eng. Saif Core OS...",
+                "> Loading 3D Visualization Modules...",
+                "> Compiling Web Development Scripts...",
+                "> System Ready. Launching Studio..."
+            ];
+
+            let stepIndex = 0;
+            
+            setTimeout(() => {
+                bar.style.width = '100%';
+            }, 100);
+
+            const interval = setInterval(() => {
+                stepIndex++;
+                if (stepIndex < steps.length) {
+                    terminal.textContent = steps[stepIndex];
+                } else {
+                    clearInterval(interval);
+                }
+            }, 500);
+
+            setTimeout(() => {
+                intro.style.opacity = '0';
+                intro.style.visibility = 'hidden';
+            }, 2300);
+        });
+
         // تأثير الخلفية البرمجية الحية (Matrix Code Rain)
         const canvas = document.getElementById('matrix-canvas');
         const ctx = canvas.getContext('2d');
@@ -425,7 +530,7 @@
             ctx.fillStyle = 'rgba(3, 7, 18, 0.12)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            ctx.fillStyle = '#3b82f6'; // لون نيون أزرق برمجى
+            ctx.fillStyle = '#3b82f6';
             ctx.font = fontSize + 'px monospace';
 
             for (let i = 0; i < drops.length; i++) {
@@ -457,7 +562,7 @@
             const reqType = document.getElementById('request-type').value;
             const details = document.getElementById('project-details').value;
             
-            const message = `مرحباً مهندس سيف، أرغب في طلب خدمة:\n\n*نوع الطلب:* ${reqType}\n\n*التفاصيل والتعديلات المطلوبة:* \n${details ? details : 'بدون تفاصيل إضافية'}`;
+            const message = `مرحباً المهندس سيف، أرغب في طلب خدمة:\n\n*نوع الطلب:* ${reqType}\n\n*التفاصيل والتعديلات المطلوبة:* \n${details ? details : 'بدون تفاصيل إضافية'}`;
             
             const encodedMessage = encodeURIComponent(message);
             const whatsappUrl = `https://wa.me/201205293436?text=${encodedMessage}`;
