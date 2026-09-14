@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bashmohndes Saif | Ultimate 3D & Programming Studio</title>
+    <title>الرئيسية | Saif Core - Ultimate 3D & Programming Studio</title>
     <style>
         :root {
             --bg-color: #030712;
@@ -32,9 +32,14 @@
             flex-direction: column;
             align-items: center;
             padding: 20px;
+            position: relative;
+            /* خلفية برمجية شبكية وتقنية فخمة جداً */
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.12) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.12) 0%, transparent 40%);
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.15) 0%, transparent 50%);
+            background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%;
         }
 
         /* شريط التنقل الفاخر */
@@ -77,6 +82,7 @@
             width: 100%;
             max-width: 900px;
             perspective: 1000px;
+            z-index: 10;
         }
 
         .page {
@@ -265,12 +271,12 @@
 
     <!-- أزرار التنقل الفاخرة -->
     <div class="nav-bar">
-        <button class="nav-btn active" onclick="switchPage('home')">الرئيسية</button>
-        <button class="nav-btn" onclick="switchPage('services')">الخدمات</button>
-        <button class="nav-btn" onclick="switchPage('experience')">سجل الخبرات</button>
-        <button class="nav-btn" onclick="switchPage('portfolio')">معرض الأعمال</button>
-        <button class="nav-btn" onclick="switchPage('request')">طلب تعديل / مشروع</button>
-        <button class="nav-btn" onclick="switchPage('contact')">تواصل معي</button>
+        <button class="nav-btn active" onclick="switchPage('home', 'الرئيسية | Saif Core - Ultimate 3D & Programming Studio')">الرئيسية (Home)</button>
+        <button class="nav-btn" onclick="switchPage('services', 'الخدمات الهندسية والبرمجية | Engineering & Dev Services')">الخدمات (Services)</button>
+        <button class="nav-btn" onclick="switchPage('experience', 'سجل الخبرات والأعمال | Corporate Experience & Portfolio')">سجل الخبرات (Experience)</button>
+        <button class="nav-btn" onclick="switchPage('portfolio', 'معرض النماذج البصرية | 3D Visualization & Code Showcase')">معرض الأعمال (Portfolio)</button>
+        <button class="nav-btn" onclick="switchPage('request', 'طلب مشروع أو تعديل برمجي | Project Request & Calculator')">طلب تعديل / مشروع (Request)</button>
+        <button class="nav-btn" onclick="switchPage('contact', 'تواصل مباشر مع باشمهندس سيف | Direct Contact')">تواصل معي (Contact)</button>
     </div>
 
     <div class="page-container">
@@ -282,37 +288,37 @@
                     <img src="my-photo.jpg" alt="Bashmohndes Saif">
                 </div>
                 <h1>مستقبل التصميم 3D والبرمجة بين يديك</h1>
-                <p>مرحباً بك، أنا باشمهندس سيف. أقدم لك هندسة برمجيات متقدمة، تصاميم ثلاثية الأبعاد احترافية، وحلول وتعديلات برمجية مخصصة تلبي كافة احتياجاتك بدقة فائقة.</p>
-                <button class="nav-btn" style="background: var(--primary); color: #fff; padding: 12px 25px; font-size: 1rem; border-radius: 12px;" onclick="switchPage('request')">اطلب مشروعك أو تعديلك الآن</button>
+                <p>مرحباً بك، أنا باشمهندس سيف. أقدم لك هندسة برمجيات متقدمة، تصاميم ثلاثية الأبعاد احترافية (3D Visualization)، وحلول وتعديلات برمجية مخصصة تلبي كافة احتياجاتك بدقة فائقة.</p>
+                <button class="nav-btn" style="background: var(--primary); color: #fff; padding: 12px 25px; font-size: 1rem; border-radius: 12px;" onclick="switchPage('request', 'طلب مشروع أو تعديل برمجي | Project Request & Calculator')">اطلب مشروعك أو تعديلك الآن</button>
             </div>
         </div>
 
         <!-- 2. الخدمات -->
         <div id="services" class="page">
-            <h2>الخدمات الهندسية والبرمجية</h2>
+            <h2>الخدمات الهندسية والبرمجية (Services)</h2>
             <div class="grid-cards">
                 <div class="feature-card">
-                    <h3>تصميم 3D ونمذجة</h3>
-                    <p>مجسمات هندسية وتصاميم واقعية مذهلة بدقة عالية.</p>
+                    <h3>تصميم 3D ونمذجة (3D Modeling)</h3>
+                    <p>مجسمات هندسية وتصاميم واقعية مذهلة بدقة عالية وإخراج بصري فائق.</p>
                 </div>
                 <div class="feature-card">
-                    <h3>تطوير وبرمجة المواقع</h3>
-                    <p>مواقع وتطبيقات سريعة، آمنة، ومصممة خصيصاً لك.</p>
+                    <h3>تطوير وبرمجة المواقع (Web Development)</h3>
+                    <p>مواقع وتطبيقات سريعة، آمنة، ومصممة خصيصاً بأحدث التقنيات البرمجية.</p>
                 </div>
                 <div class="feature-card">
-                    <h3>تعديلات برمجية مخصصة</h3>
-                    <p>إضافة ميزات أو تعديل الأكواد البرمجية القائمة باحترافية.</p>
+                    <h3>تعديلات برمجية مخصصة (Code Customization)</h3>
+                    <p>إضافة ميزات أو تعديل وتحسين الأكواد البرمجية القائمة باحترافية تامة.</p>
                 </div>
                 <div class="feature-card">
-                    <h3>الكتالوجات الرقمية</h3>
-                    <p>عروض تفاعلية مبهرة لعرض منتجاتك وأعمالك.</p>
+                    <h3>الكتالوجات الرقمية (Digital Catalogs)</h3>
+                    <p>عروض تفاعلية مبهرة لعرض منتجاتك وأعمالك بأسلوب تسويقي راقي.</p>
                 </div>
             </div>
         </div>
 
         <!-- 3. صفحة سجل الخبرات والأعمال السابقة -->
         <div id="experience" class="page">
-            <h2>سجل الخبرات والأعمال السابقة</h2>
+            <h2>سجل الخبرات والأعمال (Corporate Experience)</h2>
             <p>سجل حافل بالمشاريع والحلول التقنية والبرمجية التي تم إنجازها باحترافية تامة لشركات وعلامات تجارية رائدة:</p>
             <div class="grid-cards">
                 <div class="feature-card">
@@ -332,37 +338,37 @@
 
         <!-- 4. معرض الأعمال -->
         <div id="portfolio" class="page">
-            <h2>معرض نماذج الأعمال</h2>
+            <h2>معرض النماذج البصرية (Showcase)</h2>
             <p>نظرة مباشرة على جودة ودقة التصاميم ثلاثية الأبعاد والحلول البرمجية التي نقدمها:</p>
             <div class="grid-cards">
                 <div class="feature-card">
                     <div class="portfolio-img-box">
                         <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop" alt="3D Design">
                     </div>
-                    <h3>محاكاة هندسية ثلاثية الأبعاد</h3>
-                    <p>تصاميم مجسمات 3D واقعية متكاملة تنبض بالحياة وتلبي أعلى المعايير الهندسية.</p>
+                    <h3>محاكاة هندسية ثلاثية الأبعاد (3D Render)</h3>
+                    <p>تصاميم مجسمات واقعية متكاملة تنبض بالحياة وتلبي أعلى المعايير الهندسية.</p>
                 </div>
                 <div class="feature-card">
                     <div class="portfolio-img-box">
                         <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="Programming Code">
                     </div>
-                    <h3>تطوير وبرمجة الأنظمة</h3>
-                    <p>هندسة برمجيات متطورة، أكواد نظيفة، وتطبيقات سريعة الاستجابة ذات كفاءة عالية.</p>
+                    <h3>هندسة البرمجيات والأكواد (Code Engineering)</h3>
+                    <p>هندسة برمجيات متطورة، أكواد نظيفة (Clean Code)، وتطبيقات ذات كفاءة عالية.</p>
                 </div>
             </div>
         </div>
 
         <!-- 5. صفحة طلب مشروع جديد أو تعديل برمجي وتفاصيل -->
         <div id="request" class="page">
-            <h2>حاسبة المشاريع وطلب التعديلات</h2>
+            <h2>حاسبة المشاريع وطلب التعديلات (Project Request)</h2>
             
             <div class="calc-group">
-                <label>نوع الطلب:</label>
+                <label>نوع الطلب (Service Type):</label>
                 <select id="request-type" class="calc-select">
-                    <option value="مشروع تصميم 3D جديد">مشروع تصميم 3D جديد</option>
-                    <option value="مشروع برمجي جديد">مشروع برمجي وتطوير جديد</option>
-                    <option value="تعديل برمجي على كود / موقع">أريد تعديل برمجي على كود أو موقع حالي</option>
-                    <option value="باقة متكاملة (3D + برمجة)">باقة متكاملة (3D + برمجة + كتالوج)</option>
+                    <option value="مشروع تصميم 3D جديد">مشروع تصميم 3D جديد (3D Modeling)</option>
+                    <option value="مشروع برمجي جديد">مشروع برمجي وتطوير جديد (Web Dev)</option>
+                    <option value="تعديل برمجي على كود / موقع">أريد تعديل برمجي على كود أو موقع حالي (Code Fix)</option>
+                    <option value="باقة متكاملة (3D + برمجة)">باقة متكاملة (Full Package: 3D + Dev)</option>
                 </select>
             </div>
 
@@ -379,7 +385,7 @@
 
         <!-- 6. التواصل -->
         <div id="contact" class="page">
-            <h2>تواصل مباشر</h2>
+            <h2>تواصل مباشر (Direct Contact)</h2>
             <p>أنا جاهز لتحويل فكرتك أو تنفيذ تعديلك البرمجي فوراً. تواصل معي مباشرة عبر الواتساب:</p>
             <a href="https://wa.me/201205293436" class="btn-whatsapp" target="_blank" style="margin-top: 10px;">
                 فتح محادثة الواتساب الفورية
@@ -389,7 +395,7 @@
     </div>
 
     <script>
-        function switchPage(pageId) {
+        function switchPage(pageId, pageTitle) {
             const pages = document.querySelectorAll('.page');
             pages.forEach(p => p.classList.remove('active'));
 
@@ -398,6 +404,9 @@
 
             document.getElementById(pageId).classList.add('active');
             event.target.classList.add('active');
+
+            // تحديث عنوان التبويب في المتصفح وجوجل ديناميكياً
+            document.title = pageTitle;
         }
 
         function sendToWhatsApp() {
